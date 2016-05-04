@@ -25,7 +25,7 @@ public class ServerRegistry {
 
            
             
-            Naming.rebind("rmi://localhost:1098/MaRegistry",obj);
+            Naming.rebind("rmi://localhost:1100/MaRegistry",obj);
             
         } catch (Exception e) {
             e.printStackTrace();
