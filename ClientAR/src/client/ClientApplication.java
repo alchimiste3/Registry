@@ -39,7 +39,7 @@ public class ClientApplication {
             MaRegistryInterface maRMI = (MaRegistryInterface) reg.lookup("MaRegistry");
             
 
-            TestInterface test = (TestInterface) maRMI.lookup("test1");
+            //TestInterface test = (TestInterface) maRMI.lookup("test1");
             
             test.salut();
 

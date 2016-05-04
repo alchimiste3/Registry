@@ -1,12 +1,14 @@
 package server;
 
+import java.io.Serializable;
 import java.rmi.Naming;
 import java.rmi.registry.*;
 
+import objetRMI.Donnee;
 import objetRMI.MaRegistryInterface;
-import objetRMI.Test;
-import objetRMI.Test2;
-import objetRMI.Test3;
+import objetRMI.Service;
+import objetRMI.ServiceInterface;
+
 
 /**
  * Il faut demarer le registry avant de run :
@@ -29,17 +31,16 @@ public class ServerApplication {
         try {
             System.out.println("Creation de l'objet serveur de l'application");
 
+            ServiceInterface service = new Service();
+            Donnee donnee = new Donnee();
+
+            Naming.rebind("rmi://localhost:1101/Service",service);
 
             
             MaRegistryInterface maRMI = (MaRegistryInterface) Naming.lookup("rmi://localhost:1098/MaRegistry");
             
-            Test t = new Test();
-            
-            maRMI.salut();
-            
-            maRMI.rebind("test1", new Test());
-            maRMI.rebind("test2", new Test2());
-            maRMI.rebind("test3", new Test3());
+            maRMI.rebind("Service", (Serializable) service);
+            maRMI.rebind("Service", donnee);
 
         } catch (Exception e) {
             e.printStackTrace();

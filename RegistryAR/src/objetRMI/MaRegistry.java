@@ -6,6 +6,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -28,11 +30,24 @@ public class MaRegistry extends UnicastRemoteObject implements MaRegistryInterfa
     public Serializable lookup(String key) throws RemoteException{
         return database.get(key);
     }
-    
-    public void salut() throws RemoteException{
-        System.out.println("salut");
+
+    @Override
+    public List<Serializable> dernierInfo(int x) {
+        return database.dernierInfo(x);
     }
 
+    @Override
+    public ArrayList<String> dernierCle(int x) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ArrayList<String> ClePlusDemander(int x) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+    
 
 
 

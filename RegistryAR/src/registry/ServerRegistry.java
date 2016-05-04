@@ -21,6 +21,7 @@ public class ServerRegistry {
                 System.setSecurityManager(new SecurityManager());
             }
             
+            //La registry qui permet 
             MaRegistry obj = new MaRegistry();
 
            
