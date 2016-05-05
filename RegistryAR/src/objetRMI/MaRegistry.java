@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -21,10 +23,8 @@ public class MaRegistry extends UnicastRemoteObject implements MaRegistryInterfa
     }
 
     public void rebind(String key, Serializable obj) throws RemoteException{
-        
+        System.out.println("rebind de "+ obj.getClass());
         database.add(key, obj);  
-        System.out.println(obj.getClass());
-
     }
     
     public Serializable lookup(String key) throws RemoteException{
@@ -32,21 +32,29 @@ public class MaRegistry extends UnicastRemoteObject implements MaRegistryInterfa
     }
 
     @Override
-    public List<Serializable> dernierInfo(int x) {
-        return database.dernierInfo(x);
+    public List<String> dernierCleAjouter(int x) throws RemoteException {
+        return database.dernierCleAjouter(x);
+    }
+    
+    @Override
+    public List<String> dernierCleDemander(int x) throws RemoteException {
+        return database.dernierCleDemander(x);
     }
 
     @Override
-    public ArrayList<String> dernierCle(int x) {
-        // TODO Auto-generated method stub
-        return null;
+    public List<Serializable> dernierObjetAjouter(int x) throws RemoteException {
+        return database.dernierObjetAjouter(x);
     }
 
     @Override
-    public ArrayList<String> ClePlusDemander(int x) {
-        // TODO Auto-generated method stub
-        return null;
+    public HashMap<String, Integer> getMapCleFreqDemand(int x) throws RemoteException {
+        return database.getMapCleFreqDemand(x);
     }
+
+
+
+    
+
     
 
 

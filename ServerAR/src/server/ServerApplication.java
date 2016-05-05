@@ -1,7 +1,10 @@
 package server;
 
 import java.io.Serializable;
+import java.net.MalformedURLException;
 import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.rmi.registry.*;
 
 import objetRMI.Donnee;
@@ -28,22 +31,59 @@ public class ServerApplication {
 
 
     public static void main(String[] args) {
+        ServerApplication server = new ServerApplication();
+        server.init();
+    }
+    
+    public void init(){
         try {
             System.out.println("Creation de l'objet serveur de l'application");
-
-            ServiceInterface service = new Service();
+    
+            Service service = new Service();
             Donnee donnee = new Donnee();
 
-            Naming.rebind("rmi://localhost:1101/Service",service);
+            Naming.rebind("rmi://localhost:1101/Service",(ServiceInterface)service);
+            
+            System.out.println(donnee.getDonnee());            
+            System.out.println(service.getInfo());
 
             
-            MaRegistryInterface maRMI = (MaRegistryInterface) Naming.lookup("rmi://localhost:1098/MaRegistry");
+            MaRegistryInterface maRMI = (MaRegistryInterface) Naming.lookup("rmi://localhost:1100/MaRegistry");
             
-            maRMI.rebind("Service", (Serializable) service);
-            maRMI.rebind("Service", donnee);
-
-        } catch (Exception e) {
+            maRMI.rebind("Service", service);
+            maRMI.rebind("Donnee", donnee);
+            
+            publicationInfo();
+            
+        } catch (RemoteException | MalformedURLException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
+        } catch (NotBoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+
+    }
+    
+    public void publicationInfo(){
+        try {
+            ServerJMS jms = new ServerJMS();
+            jms.connection("tcp://localhost:61616", "user", "user");
+            jms.init("queueTest");
+            
+            int i = 0;
+            
+            while(true){
+                jms.envoyerMessage("info"+i++);
+                Thread.sleep(20000);
+
+            }
+
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace(); 
         }
     }
 
