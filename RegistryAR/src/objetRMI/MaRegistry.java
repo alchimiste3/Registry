@@ -50,6 +50,11 @@ public class MaRegistry extends UnicastRemoteObject implements MaRegistryInterfa
     public HashMap<String, Integer> getMapCleFreqDemand(int x) throws RemoteException {
         return database.getMapCleFreqDemand(x);
     }
+    
+    @Override
+    public String getClePlusDemande() throws RemoteException {
+        return database.getClePlusDemande();
+    }
 
 
 

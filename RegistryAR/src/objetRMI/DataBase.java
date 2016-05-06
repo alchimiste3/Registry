@@ -129,6 +129,27 @@ public class DataBase {
         
         return map;
     }
+    
+    /**
+     * Permet de récupérer la clé la plus demandée
+     * Renvoie null s'il n'y a pas de clé
+     */
+    public String getClePlusDemande() {
+        Iterator<String> it = tableCleNbDemander.keySet().iterator();
+        String keyMax = null;
+        int max = 0;
+        
+        for(;it.hasNext();){
+            
+            String keyComp = it.next();
+            int value = tableCleNbDemander.get(keyComp);
+            if (value > max) {
+                max = value;
+                keyMax = keyComp;
+            }
+        }
+        return keyMax; 
+    }
 
     
     

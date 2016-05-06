@@ -52,5 +52,12 @@ public interface MaRegistryInterface extends Remote{
      * @return Liste de cle
      */
     public HashMap<String, Integer> getMapCleFreqDemand(int x) throws RemoteException;
+    
+    /**
+     * Permet de récupérer la clé la plus demandée
+     * @return clé
+     * @throws RemoteException 
+     */
+    public String getClePlusDemande() throws RemoteException;
 
 }
