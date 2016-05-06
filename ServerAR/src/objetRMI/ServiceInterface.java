@@ -24,8 +24,15 @@ public interface ServiceInterface extends Remote {
      * @return
      * @throws RemoteException
      */
-    public boolean etreRappelé(AccesClientInterface client) throws RemoteException; 
+    public boolean etreRappelé(AccesClientInterface client, int temps) throws RemoteException; 
     
     
-    //s'abonner aux dernières informations
+    /**
+     * Permet de recuperer les informations de connection sur le server JMS et lire la queue
+     * 
+     * @return InfoConnectionJMS
+     * @throws RemoteException
+     */
+    public InfoConnectionJMS abonnement() throws RemoteException; 
+    
 }

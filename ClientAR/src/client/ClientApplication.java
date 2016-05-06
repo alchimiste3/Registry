@@ -9,7 +9,9 @@ import java.util.ArrayList;
 
 import com.sun.org.apache.xml.internal.security.Init;
 
+import objetRMI.AccesClient;
 import objetRMI.Donnee;
+import objetRMI.InfoConnectionJMS;
 import objetRMI.MaRegistryInterface;
 import objetRMI.ServiceInterface;
 
@@ -81,10 +83,18 @@ public class ClientApplication {
             
             System.out.println(maRMI.dernierObjetAjouter(2));
             
-            ClientJMS jms = new ClientJMS();
-            jms.connection("tcp://localhost:61616", "user", "user");
-            jms.init("queueTest", listeMessage);
+            InfoConnectionJMS infoJMS = service.abonnement();
             
+            ClientJMS jms = new ClientJMS();
+            jms.connection(infoJMS.getUrl(), infoJMS.getLogin(), infoJMS.getPassword());
+            jms.init(infoJMS.getNom(), listeMessage);
+            
+            
+            AccesClient client = new AccesClient();
+            service.etreRappelé(client, 10000);
+            
+            System.out.println("salut");
+
         }
         catch(RemoteException e){
             

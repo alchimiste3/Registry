@@ -8,6 +8,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.*;
 
 import objetRMI.Donnee;
+import objetRMI.InfoConnectionJMS;
 import objetRMI.MaRegistryInterface;
 import objetRMI.Service;
 import objetRMI.ServiceInterface;
@@ -29,6 +30,7 @@ import objetRMI.ServiceInterface;
  */
 public class ServerApplication {
 
+    private InfoConnectionJMS infoJMS = new InfoConnectionJMS();
 
     public static void main(String[] args) {
         ServerApplication server = new ServerApplication();
@@ -39,7 +41,14 @@ public class ServerApplication {
         try {
             System.out.println("Creation de l'objet serveur de l'application");
     
-            Service service = new Service();
+            // On init les info du JMS
+            infoJMS.setUrl("tcp://localhost:61616");
+            infoJMS.setLogin("user");
+            infoJMS.setPassword("user");
+            infoJMS.setNom("queueTest");
+                        
+            // On creer un service et une donnee
+            Service service = new Service(infoJMS);
             Donnee donnee = new Donnee();
 
             Naming.rebind("rmi://localhost:1101/Service",(ServiceInterface)service);
@@ -53,7 +62,7 @@ public class ServerApplication {
             maRMI.rebind("Service", service);
             maRMI.rebind("Donnee", donnee);
             
-            publicationInfo();
+            runPublicationInfo();
             
         } catch (RemoteException | MalformedURLException e) {
             // TODO Auto-generated catch block
@@ -67,11 +76,12 @@ public class ServerApplication {
 
     }
     
-    public void publicationInfo(){
+    public void runPublicationInfo(){
         try {
+            
             ServerJMS jms = new ServerJMS();
-            jms.connection("tcp://localhost:61616", "user", "user");
-            jms.init("queueTest");
+            jms.connection(infoJMS.getUrl(), infoJMS.getLogin(), infoJMS.getPassword());
+            jms.init(infoJMS.getNom());
             
             int i = 0;
             

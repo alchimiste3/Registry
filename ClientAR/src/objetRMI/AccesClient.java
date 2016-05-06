@@ -7,13 +7,12 @@ public class AccesClient extends UnicastRemoteObject implements AccesClientInter
 
     public AccesClient() throws RemoteException {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     public boolean appeler() throws RemoteException {
-        // TODO Auto-generated method stub
-        return false;
+        System.out.println("le server a reppelé !!!");
+        return true;
     }
     
     
