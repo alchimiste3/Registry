@@ -6,14 +6,17 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.*;
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import javax.jms.Message;
 
 import com.sun.org.apache.xml.internal.security.Init;
 
-import objetRMI.AccesClient;
-import objetRMI.Donnee;
+import applicationTest.AccesClient;
+import applicationTest.Donnee;
+import applicationTest.ServiceInterface;
 import objetRMI.InfoConnectionJMS;
 import objetRMI.MaRegistryInterface;
-import objetRMI.ServiceInterface;
 
 
 /**
@@ -32,14 +35,33 @@ import objetRMI.ServiceInterface;
  */
 public class ClientApplication {
     
-    private ArrayList<String> listeMessage = new ArrayList<>();
+    private ArrayList<Message> listeMessage = new ArrayList<>();
 
 
     public static void main(String[] args) {
         try {
             ClientApplication client = new ClientApplication();
-
+       
             MaRegistryInterface maRMI = client.init();
+
+            System.out.println("Vous aver le choix entre deux application différente : la librairie numerique et les fleur.");
+            
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Quel service voulez vous lancer : (\"librairie\", \"fleur\")");
+            
+            String rep = scanner.nextLine();
+            
+            switch (rep) {
+                case "librairie":
+                    ClientApplicationLibrairie clientLibrairie = new ClientApplicationLibrairie();
+                    clientLibrairie.runClientLibrairie(maRMI);
+                break;
+                case "fleur":
+                break; 
+                default:
+                    break;
+            }
+            
             client.run(maRMI);
             
 
@@ -72,7 +94,7 @@ public class ClientApplication {
         return null;
        
     }
-    
+
     public void run(MaRegistryInterface maRMI){
         try{
             

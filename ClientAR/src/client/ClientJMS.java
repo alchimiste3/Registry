@@ -14,7 +14,7 @@ import javax.naming.NamingException;
 
 public class ClientJMS  implements javax.jms.MessageListener{
 
-    private ArrayList<String> listeMessage = new ArrayList<>();
+    private ArrayList<Message> listeMessage = new ArrayList<>();
 
     
     private javax.jms.Connection connect = null;
@@ -48,7 +48,7 @@ public class ClientJMS  implements javax.jms.MessageListener{
         }
     }
     
-    public void init(String nom, ArrayList<String> listeMessage){    
+    public void init(String nom, ArrayList<Message> listeMessage){    
         try{            
             
             this.listeMessage = listeMessage;
@@ -70,18 +70,6 @@ public class ClientJMS  implements javax.jms.MessageListener{
 
     @Override
     public void onMessage(Message message) {
-        try {
-            String m = ((MapMessage)message).getString("nom");
-            System.out.print("Recu un message de la queue: "+ message);
-
-            listeMessage.add(m);
-            
-            System.out.println(" Mess redelivre: "+message.getJMSRedelivered());
-            
-            
-        } catch (JMSException e){ 
-            System.out.println("Probleme onMessage JMS → "+e);
-            e.printStackTrace();
-        }        
+        listeMessage.add(message);        
     }
 }

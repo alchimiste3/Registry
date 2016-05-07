@@ -246,3 +246,143 @@ org.springframework.web.util.NestedServletException: Request processing failed; 
 2016-05-06 17:46:52,202 | INFO  | Apache ActiveMQ 5.13.2 (localhost, ID:Axxx-36911-1462546764423-0:1) is shutdown | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
 2016-05-06 17:46:52,203 | INFO  | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@39aeed2f: startup date [Fri May 06 16:59:22 CEST 2016]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | ActiveMQ ShutdownHook
 2016-05-06 17:46:52,209 | INFO  | Destroying Spring FrameworkServlet 'dispatcher' | /admin | ActiveMQ ShutdownHook
+2016-05-07 14:56:00,953 | INFO  | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@39aeed2f: startup date [Sat May 07 14:56:00 CEST 2016]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | main
+2016-05-07 14:56:02,192 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/home/user/Application_Repartie/Registry/activemq/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2016-05-07 14:56:02,501 | INFO  | KahaDB is version 6 | org.apache.activemq.store.kahadb.MessageDatabase | main
+2016-05-07 14:56:02,555 | INFO  | Recovering from the journal @1:4302893 | org.apache.activemq.store.kahadb.MessageDatabase | main
+2016-05-07 14:56:02,557 | INFO  | Recovery replayed 4 operations from the journal in 0.033 seconds. | org.apache.activemq.store.kahadb.MessageDatabase | main
+2016-05-07 14:56:02,566 | INFO  | PListStore:[/home/user/Application_Repartie/Registry/activemq/data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2016-05-07 14:56:02,707 | INFO  | Apache ActiveMQ 5.13.2 (localhost, ID:Axxx-34570-1462625762580-0:1) is starting | org.apache.activemq.broker.BrokerService | main
+2016-05-07 14:56:02,785 | INFO  | Listening for connections at: tcp://Axxx:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2016-05-07 14:56:02,787 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | main
+2016-05-07 14:56:02,792 | INFO  | Listening for connections at: amqp://Axxx:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2016-05-07 14:56:02,794 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | main
+2016-05-07 14:56:02,800 | INFO  | Listening for connections at: stomp://Axxx:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2016-05-07 14:56:02,804 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | main
+2016-05-07 14:56:02,810 | INFO  | Listening for connections at: mqtt://Axxx:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2016-05-07 14:56:02,813 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | main
+2016-05-07 14:56:03,119 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@65b104b9{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | main
+2016-05-07 14:56:03,157 | INFO  | Listening for connections at ws://Axxx:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | main
+2016-05-07 14:56:03,158 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | main
+2016-05-07 14:56:03,160 | INFO  | Apache ActiveMQ 5.13.2 (localhost, ID:Axxx-34570-1462625762580-0:1) started | org.apache.activemq.broker.BrokerService | main
+2016-05-07 14:56:03,161 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | main
+2016-05-07 14:56:03,162 | WARN  | Store limit is 102400 mb (current store usage is 4 mb). The data directory: /home/user/Application_Repartie/Registry/activemq/data/kahadb only has 1460 mb of usable space. - resetting to maximum available disk space: 1460 mb | org.apache.activemq.broker.BrokerService | main
+2016-05-07 14:56:03,163 | WARN  | Temporary Store limit is 51200 mb (current store usage is 0 mb). The data directory: /home/user/Application_Repartie/Registry/activemq/data only has 1456 mb of usable space. - resetting to maximum available disk space: 1456 mb | org.apache.activemq.broker.BrokerService | main
+2016-05-07 14:56:03,866 | INFO  | No Spring WebApplicationInitializer types detected on classpath | /admin | main
+2016-05-07 14:56:04,054 | INFO  | ActiveMQ WebConsole available at http://0.0.0.0:8161/ | org.apache.activemq.web.WebConsoleStarter | main
+2016-05-07 14:56:04,055 | INFO  | ActiveMQ Jolokia REST API available at http://0.0.0.0:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | main
+2016-05-07 14:56:04,150 | INFO  | Initializing Spring FrameworkServlet 'dispatcher' | /admin | main
+2016-05-07 14:56:04,563 | INFO  | No Spring WebApplicationInitializer types detected on classpath | /api | main
+2016-05-07 14:56:04,667 | INFO  | jolokia-agent: Using policy access restrictor classpath:/jolokia-access.xml | /api | main
+2016-05-07 16:12:29,186 | WARN  | Transport Connection to: tcp://127.0.0.1:55898 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55898@61616
+2016-05-07 16:12:50,275 | WARN  | Transport Connection to: tcp://127.0.0.1:55940 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55940@61616
+2016-05-07 16:12:50,275 | WARN  | Transport Connection to: tcp://127.0.0.1:55914 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:55914@61616
+2016-05-07 17:10:26,344 | WARN  | Transport Connection to: tcp://127.0.0.1:56776 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56776@61616
+2016-05-07 17:11:49,539 | WARN  | Transport Connection to: tcp://127.0.0.1:56788 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56788@61616
+2016-05-07 17:45:00,205 | WARN  | Transport Connection to: tcp://127.0.0.1:56824 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56824@61616
+2016-05-07 17:45:01,740 | WARN  | Transport Connection to: tcp://127.0.0.1:56762 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56762@61616
+2016-05-07 17:45:01,740 | WARN  | Transport Connection to: tcp://127.0.0.1:56736 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:56736@61616
+2016-05-07 17:45:28,413 | WARN  | Transport Connection to: tcp://127.0.0.1:57464 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57464@61616
+2016-05-07 17:46:03,626 | WARN  | Transport Connection to: tcp://127.0.0.1:57456 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57456@61616
+2016-05-07 17:46:03,626 | WARN  | Transport Connection to: tcp://127.0.0.1:57430 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57430@61616
+2016-05-07 17:46:48,547 | WARN  | Transport Connection to: tcp://127.0.0.1:57524 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57524@61616
+2016-05-07 17:46:55,236 | WARN  | Transport Connection to: tcp://127.0.0.1:57510 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57510@61616
+2016-05-07 17:46:55,236 | WARN  | Transport Connection to: tcp://127.0.0.1:57484 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57484@61616
+2016-05-07 17:47:00,336 | WARN  | Transport Connection to: tcp://127.0.0.1:57532 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57532@61616
+2016-05-07 17:48:14,172 | WARN  | Transport Connection to: tcp://127.0.0.1:57586 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57586@61616
+2016-05-07 17:51:12,334 | WARN  | Transport Connection to: tcp://127.0.0.1:57612 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57612@61616
+2016-05-07 17:51:13,632 | WARN  | Transport Connection to: tcp://127.0.0.1:57578 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57578@61616
+2016-05-07 17:51:13,632 | WARN  | Transport Connection to: tcp://127.0.0.1:57552 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57552@61616
+2016-05-07 17:55:44,884 | INFO  | Connector vm://localhost started | org.apache.activemq.broker.TransportConnector | qtp342198178-138
+2016-05-07 17:56:00,035 | WARN  |  | org.eclipse.jetty.servlet.ServletHandler | qtp342198178-42
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.UnsupportedOperationException: Possible CSRF attack
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:977)[spring-webmvc-4.1.9.RELEASE.jar:4.1.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:856)[spring-webmvc-4.1.9.RELEASE.jar:4.1.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)[tomcat-servlet-api-8.0.24.jar:]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:841)[spring-webmvc-4.1.9.RELEASE.jar:4.1.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)[tomcat-servlet-api-8.0.24.jar:]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:808)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1669)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.apache.activemq.web.AuditFilter.doFilter(AuditFilter.java:59)[activemq-web-5.13.2.jar:5.13.2]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)[spring-web-4.1.9.RELEASE.jar:4.1.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)[spring-web-4.1.9.RELEASE.jar:4.1.9.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.apache.activemq.web.filter.ApplicationContextFilter.doFilter(ApplicationContextFilter.java:102)[file:/home/user/Application_Repartie/Registry/activemq/webapps/admin/WEB-INF/classes/:]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:585)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:542)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:110)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:542)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:110)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:310)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:540)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at java.lang.Thread.run(Thread.java:745)[:1.8.0_65]
+2016-05-07 17:56:02,586 | WARN  |  | org.eclipse.jetty.servlet.ServletHandler | qtp342198178-138
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.UnsupportedOperationException: Possible CSRF attack
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:977)[spring-webmvc-4.1.9.RELEASE.jar:4.1.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:856)[spring-webmvc-4.1.9.RELEASE.jar:4.1.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)[tomcat-servlet-api-8.0.24.jar:]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:841)[spring-webmvc-4.1.9.RELEASE.jar:4.1.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)[tomcat-servlet-api-8.0.24.jar:]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:808)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1669)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.apache.activemq.web.AuditFilter.doFilter(AuditFilter.java:59)[activemq-web-5.13.2.jar:5.13.2]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)[spring-web-4.1.9.RELEASE.jar:4.1.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)[spring-web-4.1.9.RELEASE.jar:4.1.9.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.apache.activemq.web.filter.ApplicationContextFilter.doFilter(ApplicationContextFilter.java:102)[file:/home/user/Application_Repartie/Registry/activemq/webapps/admin/WEB-INF/classes/:]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:585)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:542)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:110)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:542)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:110)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:310)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:540)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555)[jetty-all-9.2.13.v20150730.jar:9.2.13.v20150730]
+	at java.lang.Thread.run(Thread.java:745)[:1.8.0_65]
+2016-05-07 17:57:58,815 | WARN  | Transport Connection to: tcp://127.0.0.1:57878 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57878@61616
+2016-05-07 17:57:58,815 | WARN  | Transport Connection to: tcp://127.0.0.1:57852 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57852@61616
+2016-05-07 17:58:00,266 | WARN  | Transport Connection to: tcp://127.0.0.1:57886 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:57886@61616
+2016-05-07 18:16:55,818 | WARN  | Transport Connection to: tcp://127.0.0.1:58080 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58080@61616
+2016-05-07 18:16:57,002 | WARN  | Transport Connection to: tcp://127.0.0.1:58066 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58066@61616
+2016-05-07 18:16:57,002 | WARN  | Transport Connection to: tcp://127.0.0.1:58040 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58040@61616
+2016-05-07 18:26:19,261 | WARN  | Transport Connection to: tcp://127.0.0.1:58720 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58720@61616
+2016-05-07 18:26:20,740 | WARN  | Transport Connection to: tcp://127.0.0.1:58712 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58712@61616
+2016-05-07 18:26:20,740 | WARN  | Transport Connection to: tcp://127.0.0.1:58686 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58686@61616
+2016-05-07 18:27:31,837 | WARN  | Transport Connection to: tcp://127.0.0.1:58910 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58910@61616
+2016-05-07 18:27:37,807 | WARN  | Transport Connection to: tcp://127.0.0.1:58990 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:58990@61616
+2016-05-07 18:46:02,956 | WARN  | Transport Connection to: tcp://127.0.0.1:59044 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59044@61616
+2016-05-07 18:46:04,155 | WARN  | Transport Connection to: tcp://127.0.0.1:59010 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59010@61616
+2016-05-07 18:46:04,155 | WARN  | Transport Connection to: tcp://127.0.0.1:59036 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59036@61616
+2016-05-07 18:56:35,722 | WARN  | Transport Connection to: tcp://127.0.0.1:59356 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59356@61616
+2016-05-07 18:56:36,745 | WARN  | Transport Connection to: tcp://127.0.0.1:59346 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59346@61616
+2016-05-07 18:56:36,745 | WARN  | Transport Connection to: tcp://127.0.0.1:59320 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59320@61616
+2016-05-07 18:58:12,876 | WARN  | Transport Connection to: tcp://127.0.0.1:59568 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59568@61616
+2016-05-07 18:58:14,464 | WARN  | Transport Connection to: tcp://127.0.0.1:59534 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59534@61616
+2016-05-07 18:58:14,464 | WARN  | Transport Connection to: tcp://127.0.0.1:59560 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:59560@61616

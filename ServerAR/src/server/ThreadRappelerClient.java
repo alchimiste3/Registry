@@ -2,7 +2,7 @@ package server;
 
 import java.rmi.RemoteException;
 
-import objetRMI.AccesClientInterface;
+import applicationTest.AccesClientInterface;
 
 public class ThreadRappelerClient extends Thread{
     

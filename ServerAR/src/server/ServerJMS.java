@@ -1,6 +1,9 @@
 package server;
 
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Iterator;
+
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.jms.MapMessage;
@@ -62,10 +65,18 @@ public class ServerJMS {
         
     }
     
-    public void envoyerMessage(String message){
+    public void envoyerMessage(String service, HashMap<String, String> listeMessage){
         try {
             MapMessage m = session.createMapMessage();
-            m.setString("message",message);
+            m.setString("service",service);
+
+            Iterator<String> it = listeMessage.keySet().iterator();
+            
+            for(;it.hasNext();){
+                String cle = it.next();
+                m.setString(cle, listeMessage.get(cle));
+            }
+            
             m.setStringProperty("typeMess","important");
 
             producteur.send(m);
