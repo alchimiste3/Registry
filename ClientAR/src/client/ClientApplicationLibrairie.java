@@ -1,8 +1,6 @@
 package client;
 
-import java.rmi.Naming;
 import java.rmi.NotBoundException;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.*;
 import java.util.ArrayList;
@@ -10,13 +8,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import javax.jms.JMSException;
-import javax.jms.MapMessage;
 import javax.jms.Message;
 
-import com.sun.org.apache.xml.internal.security.Init;
-
 import applicationLibrairieNumerique.LibrairieInterface;
-import applicationLibrairieNumerique.Livre;
 import applicationLibrairieNumerique.commande.CommandeAcheterLivre;
 import applicationLibrairieNumerique.commande.CommandeCommanderLivre;
 import applicationLibrairieNumerique.commande.CommandeInfo;
@@ -57,6 +51,45 @@ public class ClientApplicationLibrairie {
         listeCommande.add("commanderLivre → permet d'envoyer un demande de rappele pour la sortie d'un livre");
 
     }
+    
+    public static void main(String[] args) {
+        try {
+            
+            ClientApplicationLibrairie clientLibrairie = new ClientApplicationLibrairie();
+            
+            MaRegistryInterface maRMI = clientLibrairie.init();
+     
+            clientLibrairie.runClientLibrairie(maRMI);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public MaRegistryInterface init(){
+        try {
+            System.out.println("Creation de l'objet serveur de l'application");
+    
+            if(System.getSecurityManager() == null){
+                System.out.println("init SecurityManager");
+                System.setSecurityManager(new SecurityManager());
+            }
+            
+            Registry reg = LocateRegistry.getRegistry("localhost",1100);
+            
+            return (MaRegistryInterface) reg.lookup("MaRegistry");
+
+        } catch (RemoteException e) {
+            System.out.println("Probleme init → "+e);
+        } catch (NotBoundException e) {
+            System.out.println("Probleme init → "+e);
+        }
+        
+        return null;
+       
+    }
+    
 
     public void runClientLibrairie(MaRegistryInterface maRMI){
         try{
@@ -68,6 +101,7 @@ public class ClientApplicationLibrairie {
             jms.connection(infoJMS.getUrl(), infoJMS.getLogin(), infoJMS.getPassword());
             jms.init(infoJMS.getNom(), listeMessage);
             
+            @SuppressWarnings("resource")
             Scanner scanner = new Scanner(System.in);        
             
             System.out.println("Vous pouvez utiliser plusieur commande (entrer \"?\" pour avoir la liste");
@@ -95,12 +129,10 @@ public class ClientApplicationLibrairie {
                         System.out.println("Numero de carte de credit ?");
                         numCarteCredit = scanner.nextLine();
                         
-                        //inscription(nomUtilisateur, numCarteCredit);
                         new CommandeInscription(librairie, nomUtilisateur, numCarteCredit).execute();
                     break;
                     
                     case "info":
-                        //getInformation();
                         new CommandeInfo(librairie).execute();
                     break;
                     
@@ -111,12 +143,10 @@ public class ClientApplicationLibrairie {
                         System.out.println("nom du livre ?");
                         nomLivre = scanner.nextLine();
 
-                        //acheterLivre(nomUtilisateur, nomLivre);
                         new CommandeAcheterLivre(librairie, nomUtilisateur, nomLivre, listeMessage).execute();
                     break;
                     
                     case "listerLivre":
-                        //ListeLivre();
                         new CommandeListerLivre(librairie).execute();
                     break;
                     
@@ -127,7 +157,6 @@ public class ClientApplicationLibrairie {
                         System.out.println("nom du livre ?");
                         nomLivre = scanner.nextLine();
 
-                        //rappeleCommandeLivre(nomUtilisateur, nomLivre);
                         new CommandeCommanderLivre(librairie, nomUtilisateur, nomLivre, listeMessage).execute();
                     break;
                     default:
@@ -142,85 +171,13 @@ public class ClientApplicationLibrairie {
         catch(RemoteException e){
             System.out.println("Probleme runClientLibrairie → "+e);
         } catch (JMSException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            System.out.println("Probleme runClientLibrairie → "+e);
         }
         
 
     }
     
-    private void getInformation() throws RemoteException{
-        System.out.println(librairie.getInformation());
-    }
-    
-    private void inscription(String nomUtilisateur, String numCarteCredit) throws RemoteException{
-        boolean rep = librairie.inscription(nomUtilisateur, numCarteCredit);
-        
-        if(rep) System.out.println("Votre inscription a bien été prise en compte");
-        else System.out.println("L'inscription a échoué");
-        
-    }
-    
-    private void acheterLivre(String nomUtilisateur, String nomLivre) throws RemoteException, JMSException{
-        int sizelisteMessage = listeMessage.size();
-        
-        Livre livre = librairie.acheterLivre(nomUtilisateur, nomLivre);
-        
-        if(livre == null){
-            System.out.println("Vous ne pouvez pas acheter ce livre");
-        }
-        else{
-            System.out.println("Voici votre nouveau livre ");
-            System.out.println(livre.toString());
-        }
-        
-        //On attend que le message arrive
-        while(sizelisteMessage == listeMessage.size()){}
-        
-        Message message = listeMessage.get(listeMessage.size() - 1);
-        
-        String service = ((MapMessage)message).getString("service");
-
-        if(service.equals("Librairie")){
-            String utilisateur = ((MapMessage)message).getString("utilisateur");
-            if(utilisateur.equals(nomUtilisateur)){
-                System.out.println(((MapMessage)message).getString("message"));
-            }
-        }
-        
-        
-    }
-    
-    private void ListeLivre() throws RemoteException{
-        List<String> liste = librairie.ListeLivre();
-        System.out.println("Voici la liste de livre disponible");
-        for(String l : liste){
-            System.out.println(l);
-        }
-    }
-    
-    private void rappeleCommandeLivre(String nomUtilisateur, String nomLivre) throws RemoteException, JMSException{
-        int sizelisteMessage = listeMessage.size();
-
-        boolean rep = librairie.rappeleCommandeLivre(nomUtilisateur, nomLivre);
-        
-        if(rep) System.out.println("Votre commande est comfirmer");
-        else System.out.println("commande impossible");
-        
-      //On attend que le message arrive
-        while(sizelisteMessage == listeMessage.size()){}
-        
-        Message message = listeMessage.get(listeMessage.size() - 1);
-        
-        String service = ((MapMessage)message).getString("service");
-
-        if(service.equals("Librairie")){
-            String utilisateur = ((MapMessage)message).getString("utilisateur");
-            if(utilisateur.equals(nomUtilisateur)){
-                System.out.println(((MapMessage)message).getString("message"));
-            }
-        }
-    }
+   
   
     private void help(){
         for(String s : listeCommande){

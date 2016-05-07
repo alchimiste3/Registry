@@ -7,9 +7,7 @@ import java.util.Iterator;
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.jms.MapMessage;
-import javax.jms.Message;
 import javax.jms.Queue;
-import javax.jms.TextMessage;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -20,7 +18,6 @@ public class ServerJMS {
     private javax.jms.Connection connect = null;
     private javax.jms.Session session = null;
     private javax.jms.MessageProducer producteur = null;
-    private javax.jms.Queue queue = null;
     InitialContext context = null;
     
     
@@ -82,8 +79,7 @@ public class ServerJMS {
             producteur.send(m);
             
         } catch (JMSException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            System.out.println("Probleme envoyerMessage → "+e);
         }
  
     }

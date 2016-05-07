@@ -3,6 +3,7 @@ package applicationLibrairieNumerique;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+@SuppressWarnings("serial")
 public class AccesClientLibrairie extends UnicastRemoteObject implements AccesClientLibrairieInterface{
 
     public AccesClientLibrairie() throws RemoteException {

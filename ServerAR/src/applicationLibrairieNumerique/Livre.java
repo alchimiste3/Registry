@@ -2,6 +2,7 @@ package applicationLibrairieNumerique;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Livre implements Serializable{
 
 

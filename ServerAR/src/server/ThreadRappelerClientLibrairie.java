@@ -6,8 +6,6 @@ import java.util.Date;
 import applicationLibrairieNumerique.AccesClientLibrairieInterface;
 import applicationLibrairieNumerique.Librairie;
 import applicationLibrairieNumerique.Livre;
-import applicationTest.AccesClientInterface;
-import sun.launcher.resources.launcher;
 
 public class ThreadRappelerClientLibrairie extends Thread{
     
@@ -32,6 +30,7 @@ public class ThreadRappelerClientLibrairie extends Thread{
             
             System.out.println("On creer le livre attendu par le client");
 
+            @SuppressWarnings("deprecation")
             Livre livre = new Livre(nomLivre,
                     "moi",
                     date.getMonth(),

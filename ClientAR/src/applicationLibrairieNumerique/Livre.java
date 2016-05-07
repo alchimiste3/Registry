@@ -2,6 +2,7 @@ package applicationLibrairieNumerique;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Livre implements Serializable{
 
 
@@ -57,6 +58,37 @@ public class Livre implements Serializable{
     public void setContenue(String contenue) {
         this.contenue = contenue;
     }
+
+
+    public int getMoisParution() {
+        return moisParution;
+    }
+
+
+    public void setMoisParution(int moisParution) {
+        this.moisParution = moisParution;
+    }
+
+
+    public int getAnneeParution() {
+        return anneeParution;
+    }
+
+
+    public void setAnneeParution(int anneeParution) {
+        this.anneeParution = anneeParution;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Livre [titre=" + titre + ", auteur=" + auteur
+                + ", moisParution=" + moisParution + ", anneeParution="
+                + anneeParution + ", date=" + date + ", genre=" + genre
+                + ", contenue=" + contenue + "]";
+    }
+    
+    
     
     
     

@@ -1,18 +1,14 @@
 package objetRMI;
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 
 
+@SuppressWarnings("serial")
 public class MaRegistry extends UnicastRemoteObject implements MaRegistryInterface {
     
     DataBase database;

@@ -22,10 +22,6 @@ public class CommandeCommanderLivre {
         this.librairie = librairie;
         this.listeMessage = listeMessage;
     }
-    
-    private void rappeleCommandeLivre(String nomUtilisateur, String nomLivre) throws RemoteException, JMSException{
-        
-    }
 
     public void execute() throws RemoteException, JMSException{
         int sizelisteMessage = listeMessage.size();

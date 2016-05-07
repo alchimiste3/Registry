@@ -2,6 +2,7 @@ package objetRMI;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class InfoConnectionJMS implements Serializable{
 
     private String url;

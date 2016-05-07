@@ -12,6 +12,7 @@ import objetRMI.MaRegistryInterface;
 import server.ServerJMS;
 import server.ThreadRappelerClientLibrairie;
 
+@SuppressWarnings("serial")
 public class Librairie extends UnicastRemoteObject implements LibrairieInterface{
     
     InfoConnectionJMS infoJMSLibrairy;
