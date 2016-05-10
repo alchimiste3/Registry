@@ -11,7 +11,10 @@ public class BotanyDB  extends UnicastRemoteObject implements BotanyDBInterface 
         super();
         this.plantes = new HashMap<>();
     }
-        
+    
+    public HashMap getPlantes() {
+        return plantes;
+    }
 
     @Override
     public Plant getPlant(String nom) throws RemoteException {
