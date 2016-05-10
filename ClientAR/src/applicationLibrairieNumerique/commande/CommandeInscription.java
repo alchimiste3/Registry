@@ -2,7 +2,7 @@ package applicationLibrairieNumerique.commande;
 
 import java.rmi.RemoteException;
 
-import applicationLibrairieNumerique.LibrairieInterface;
+import applicationLibrairieNumerique.serviceRMI.LibrairieInterface;
 
 public class CommandeInscription {
 
@@ -19,6 +19,7 @@ public class CommandeInscription {
     }
 
     public void execute() throws RemoteException{
+        System.out.println("→librairie.inscription("+nomUtilisateur+", "+numCarteCredit+")");
         boolean rep = librairie.inscription(nomUtilisateur, numCarteCredit);
         
         if(rep) System.out.println("Votre inscription a bien été prise en compte");

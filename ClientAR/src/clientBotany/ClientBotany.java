@@ -4,7 +4,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import objetRMI.MaRegistryInterface;
+
+import objetRMICommun.MaRegistryInterface;
 
 public class ClientBotany {
         public static void main(String[] args) {

@@ -2,7 +2,7 @@ package applicationLibrairieNumerique.commande;
 
 import java.rmi.RemoteException;
 
-import applicationLibrairieNumerique.LibrairieInterface;
+import applicationLibrairieNumerique.serviceRMI.LibrairieInterface;
 
 public class CommandeInfo {
 
@@ -14,6 +14,7 @@ public class CommandeInfo {
     }
 
     public void execute() throws RemoteException{
+        System.out.println("→librairie.getInformation()");
         System.out.println(librairie.getInformation());
     }
 }
