@@ -15,21 +15,15 @@ public interface LibrairieInterface extends Remote {
      */
     public String getInformation() throws RemoteException;
     
-    public boolean inscription(String nomUtilisateur, String numCarteCredit) throws RemoteException;
+    public boolean inscription(String nomAcheteur, String numCarteCredit) throws RemoteException;
 
-    public Livre acheterLivre(String nomUtilisateur, String nomLivre) throws RemoteException;
+    public Livre acheterLivre(String nomAcheteur, String nomLivre) throws RemoteException;
     
     public List<String> ListeLivre() throws RemoteException;
    
-    public boolean rappeleCommandeLivre(String nomUtilisateur, String nomLivre) throws RemoteException;
+    public boolean rappeleCommandeLivre(String nomAcheteur, String nomLivre) throws RemoteException;
     
 
-    /**
-     * Permet de recuperer les informations de connection sur le server JMS et lire la queue
-     * 
-     * @return InfoConnectionJMS
-     * @throws RemoteException
-     */
-    public InfoConnectionJMS abonnement() throws RemoteException; 
+    public InfoConnectionJMS abonnement(String idClient) throws RemoteException; 
     
 }

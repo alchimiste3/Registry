@@ -20,7 +20,6 @@ public class ServerJMS {
     private javax.jms.Session session = null;
     InitialContext context = null;
     
-    private MessageProducer producteur = null;
     
     public void connection(String url, String login, String password){
         try {
@@ -50,10 +49,10 @@ public class ServerJMS {
         }
     }
     
-    public void initQueue(String nom){    
+    public MessageProducer initQueue(String nom){    
         try{
             Queue queue = (Queue) context.lookup("dynamicQueues/"+nom);
-            producteur = session.createProducer(queue);
+            return session.createProducer(queue);
         }
         catch(JMSException e){
             System.out.println("Probleme initialisation queue JMS → "+e);
@@ -62,10 +61,12 @@ public class ServerJMS {
             System.out.println("Probleme initialisation queue JMS → "+e);
             e.printStackTrace();
         }
+        
+        return null;
                 
     }
     
-    public void envoyerMessage(String service, HashMap<String, String> listeMessage){
+    public void envoyerMessage(MessageProducer producteur, String service, HashMap<String, String> listeMessage){
         try {
             MapMessage m = session.createMapMessage();
             m.setString("service",service);
@@ -79,6 +80,7 @@ public class ServerJMS {
             
             m.setStringProperty("typeMess","important");
 
+            
             producteur.send(m);
             
         } catch (JMSException e) {

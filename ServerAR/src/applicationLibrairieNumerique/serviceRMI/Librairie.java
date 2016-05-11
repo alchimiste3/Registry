@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.jms.MessageProducer;
+
 import applicationLibrairieNumerique.donneeRMI.Acheteur;
 import applicationLibrairieNumerique.donneeRMI.Livre;
 import mainServer.ServerJMS;
@@ -22,7 +24,8 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
     private MaRegistryInterface maRMI;
     
     private List<String> listeLivre = new ArrayList<>();
-
+    
+    MessageProducer prod = null;
 
     public Librairie(MaRegistryInterface maRMI, InfoConnectionJMS infoJMSLibrairy, ServerJMS jms) throws RemoteException {
         super();
@@ -62,7 +65,7 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
 
         listeLivre.add("Millénium - Tome 3");
         maRMI.rebind("Millénium - Tome 3", livre3);
-        
+                
     }
 
     @Override
@@ -71,52 +74,69 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
     }
     
     @Override
-    public boolean inscription(String nomUtilisateur, String numCarteCredit) throws RemoteException {
-        Acheteur acheteur = new Acheteur(nomUtilisateur,numCarteCredit);
-        maRMI.rebind(nomUtilisateur, acheteur);
+    public boolean inscription(String nomAcheteur, String numCarteCredit) throws RemoteException {
+        Acheteur acheteur = (Acheteur)maRMI.lookup(nomAcheteur);
+        
+        System.out.println("prod = " + prod);
+        if(acheteur != null && prod != null){
+            HashMap<String, String> map = new HashMap<>();
+
+            map = new HashMap<>();
+            map.put("message", "inscription \""+ nomAcheteur + "\": cet acheteur existe déja !");
+          
+            jms.envoyerMessage(prod, "Librairie", map);
+            return false;
+        }
+        
+        acheteur = new Acheteur(nomAcheteur,numCarteCredit);
+        maRMI.rebind(nomAcheteur, acheteur);
         return true;
     }
 
     @Override
-    public Livre acheterLivre(String nomUtilisateur, String nomLivre) throws RemoteException {        
-        Acheteur acheteur = (Acheteur)maRMI.lookup(nomUtilisateur);
+    public Livre acheterLivre(String nomAcheteur, String nomLivre) throws RemoteException {        
+        Acheteur acheteur = (Acheteur)maRMI.lookup(nomAcheteur);
         
         HashMap<String, String> map = new HashMap<>();
         
         
-        if(acheteur == null){
+        if(acheteur == null && prod != null){
             System.out.println(infoJMSLibrairy.getNom());
             System.out.println("acheteur null");
             map = new HashMap<>();
-            map.put("utilisateur", nomUtilisateur);
+            map.put("utilisateur", nomAcheteur);
             map.put("message", "acheterLivre : L'utilisateur n'est pas enregistrer");
             
-            jms.envoyerMessage("Librairie", map);
+            jms.envoyerMessage(prod, "Librairie", map);
             return null;
         }
         
         Livre livre = (Livre)maRMI.lookup(nomLivre);
         
-        if(livre == null){
+        if(livre == null && prod != null){
             
             System.out.println("livre null");
 
             map = new HashMap<>();
-            map.put("utilisateur", nomUtilisateur);
+            map.put("utilisateur", nomAcheteur);
             map.put("message", "acheterLivre : Ce livre n'existe pas");
           
-            jms.envoyerMessage("Librairie", map);
+            jms.envoyerMessage(prod, "Librairie", map);
             return null;
         }
         
-        map = new HashMap<>();
-        map.put("utilisateur", nomUtilisateur);
-        map.put("message", "acheterLivre : Paiement enregistrer de l'utilisateur "+nomUtilisateur+" pour le livre : "+nomLivre);  
-        jms.envoyerMessage("Librairie", map);
+        if(prod != null){
+            map = new HashMap<>();
+            map.put("utilisateur", nomAcheteur);
+            map.put("message", "acheterLivre : Paiement enregistrer de l'utilisateur "+nomAcheteur+" pour le livre : "+nomLivre);  
+            jms.envoyerMessage(prod, "Librairie", map);
+        }
+        
+
 
         acheteur.getLivreAcheter().add(nomLivre);
         
-        maRMI.rebind(nomUtilisateur, acheteur);
+        maRMI.rebind(nomAcheteur, acheteur);
         
         return livre;
     }
@@ -128,41 +148,44 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
 
   
     @Override
-    public boolean rappeleCommandeLivre(String nomUtilisateur, String nomLivre) throws RemoteException {
+    public boolean rappeleCommandeLivre(String nomAcheteur, String nomLivre) throws RemoteException {
         HashMap<String, String> map = new HashMap<>();
 
-        Acheteur acheteur = (Acheteur)maRMI.lookup(nomUtilisateur);
+        Acheteur acheteur = (Acheteur)maRMI.lookup(nomAcheteur);
         
-        if(acheteur == null){
+        if(acheteur == null && prod != null){
             System.out.println(infoJMSLibrairy.getNom());
             System.out.println("acheteur null");
             map = new HashMap<>();
-            map.put("utilisateur", nomUtilisateur);
+            map.put("utilisateur", nomAcheteur);
             map.put("message", "rappeleSortieLivre : L'utilisateur n'est pas enregistrer");
             
-            jms.envoyerMessage("Librairie", map);
+            jms.envoyerMessage(prod, "Librairie", map);
             return false;
         }
         
         Livre livre = (Livre)maRMI.lookup(nomLivre);
 
         
-        if(livre != null){
+        if(livre != null && prod != null){
             
             System.out.println("livre null");
 
             map = new HashMap<>();
-            map.put("utilisateur", nomUtilisateur);
+            map.put("utilisateur", nomAcheteur);
             map.put("message", "rappeleSortieLivre : Ce livre existe déjà");
           
-            jms.envoyerMessage("Librairie", map);
+            jms.envoyerMessage(prod, "Librairie", map);
             return false;
         }
         
-        map = new HashMap<>();
-        map.put("utilisateur", nomUtilisateur);
-        map.put("message", "rappeleSortieLivre : le livre sera ajouter dans 50 seconde");  
-        jms.envoyerMessage("Librairie", map);
+        if(prod != null){
+            map = new HashMap<>();
+            map.put("utilisateur", nomAcheteur);
+            map.put("message", "rappeleSortieLivre : le livre sera ajouter dans 50 seconde");  
+            jms.envoyerMessage(prod, "Librairie", map);
+        }
+
 
         // Ici on attend toujous 50 second pour une commande, c'est une limitation du code
         new ThreadCommandeClientLibrairie(acheteur.getClient(), nomLivre, this, 50000);
@@ -170,7 +193,10 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
     }
 
     @Override
-    public InfoConnectionJMS abonnement() throws RemoteException {
+    public InfoConnectionJMS abonnement(String idClient) throws RemoteException {
+        String nomQueue = "Queue_"+idClient;
+        prod = jms.initQueue(nomQueue);
+        infoJMSLibrairy.setNom(nomQueue);
         return infoJMSLibrairy;
     }
 

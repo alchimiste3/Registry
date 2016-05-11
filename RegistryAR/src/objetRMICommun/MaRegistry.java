@@ -1,4 +1,4 @@
-package objetRMI;
+package objetRMICommun;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;

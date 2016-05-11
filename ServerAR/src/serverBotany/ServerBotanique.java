@@ -5,8 +5,8 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.Timer;
-import objetRMI.InfoConnectionJMS;
-import objetRMI.MaRegistryInterface;
+import objetRMICommun.InfoConnectionJMS;
+import objetRMICommun.MaRegistryInterface;
 
 public class ServerBotanique {
     private InfoConnectionJMS infoJMSBotany = new InfoConnectionJMS();

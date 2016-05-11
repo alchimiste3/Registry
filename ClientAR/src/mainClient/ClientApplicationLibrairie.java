@@ -94,15 +94,26 @@ public class ClientApplicationLibrairie {
     public void runClientLibrairie(MaRegistryInterface maRMI){
         try{
                 
-            librairie = (LibrairieInterface) maRMI.lookup("Librairie");        
-    
-            InfoConnectionJMS infoJMS = librairie.abonnement();
+            librairie = (LibrairieInterface) maRMI.lookup("Librairie");     
+            
+            
+            @SuppressWarnings("resource")
+            Scanner scanner = new Scanner(System.in);  
+            
+            /**
+             * Pour pouvoir creer un Queue personnalisé pour chaque client
+             */
+            System.out.println("Vous devez choisir un identifiant pour votre client :");
+
+            
+            String idClient = scanner.nextLine();
+            
+
+            InfoConnectionJMS infoJMS = librairie.abonnement(idClient);
             jms = new ClientJMS();
             jms.connection(infoJMS.getUrl(), infoJMS.getLogin(), infoJMS.getPassword());
             jms.init(infoJMS.getNom(), listeMessage);
-            
-            @SuppressWarnings("resource")
-            Scanner scanner = new Scanner(System.in);        
+      
             
             System.out.println("Vous pouvez utiliser plusieurs commandes (entrer \"?\" pour avoir la liste");
     

@@ -2,7 +2,7 @@ package registry;
 
 import java.rmi.Naming;
 
-import objetRMI.MaRegistry;
+import objetRMICommun.MaRegistry;
 
 public class ServerRegistry {
 
