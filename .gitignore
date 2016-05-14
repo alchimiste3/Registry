@@ -10,3 +10,13 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/activemq/nbproject/private/
+/ClientAR/nbproject/private/
+/RegistryAR/nbproject/private/
+/ServerAR/nbproject/private/
+*.log
+*.xml
+*.properties
+ClientAR/build/classes/.netbeans_update_resources
+*.netbeans_automatic_build
+*.mf

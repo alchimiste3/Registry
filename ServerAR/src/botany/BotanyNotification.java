@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package serverBotany;
+package botany;
 
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -28,7 +28,7 @@ public class BotanyNotification implements Runnable {
     private javax.jms.Session session = null;
     private javax.jms.MessageProducer producteur = null;
     InitialContext context = null;
-    HashMap<String, Plant> hashPlantes;
+    volatile HashMap<String, Plant> hashPlantes;
     
     
     public void connection(String url, String login, String password){

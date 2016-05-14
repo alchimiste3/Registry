@@ -1,7 +1,8 @@
-package serverBotany;
+package botany;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Plant implements Serializable {
     private String nom;
     private String description;

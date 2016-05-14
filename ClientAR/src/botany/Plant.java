@@ -1,4 +1,4 @@
-package clientBotany;
+package botany;
 
 import java.io.Serializable;
 
