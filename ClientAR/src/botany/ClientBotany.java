@@ -7,7 +7,7 @@ import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import objetRMI.MaRegistryInterface;
+import objetRMICommun.MaRegistryInterface;
 
 public class ClientBotany {
     
