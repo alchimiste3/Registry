@@ -28,13 +28,13 @@ public class MaRegistry extends UnicastRemoteObject implements MaRegistryInterfa
     }
 
     @Override
-    public List<String> dernierCleAjouter(int x) throws RemoteException {
-        return database.dernierCleAjouter(x);
+    public List<String> derniereCleAjouter(int x) throws RemoteException {
+        return database.derniereCleAjouter(x);
     }
     
     @Override
-    public List<String> dernierCleDemander(int x) throws RemoteException {
-        return database.dernierCleDemander(x);
+    public List<String> derniereCleDemander(int x) throws RemoteException {
+        return database.derniereCleDemander(x);
     }
 
     @Override
@@ -43,13 +43,13 @@ public class MaRegistry extends UnicastRemoteObject implements MaRegistryInterfa
     }
 
     @Override
-    public HashMap<String, Integer> getMapCleFreqDemand(int x) throws RemoteException {
-        return database.getMapCleFreqDemand(x);
+    public HashMap<String, Integer> getMapCleFreqDemander(int x) throws RemoteException {
+        return database.getMapCleFreqDemander(x);
     }
     
     @Override
-    public String getClePlusDemande() throws RemoteException {
-        return database.getClePlusDemande();
+    public String getClePlusDemander() throws RemoteException {
+        return database.getClePlusDemander();
     }
 
 

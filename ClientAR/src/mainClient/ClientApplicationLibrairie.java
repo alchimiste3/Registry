@@ -122,7 +122,6 @@ public class ClientApplicationLibrairie {
             String numCarteCredit;
             String nomLivre;
 
-
             while(true){
                 
                 System.out.println("Entrer une commande !");

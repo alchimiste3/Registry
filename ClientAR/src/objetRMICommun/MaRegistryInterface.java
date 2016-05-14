@@ -25,21 +25,21 @@ public interface MaRegistryInterface extends Remote{
     public Serializable lookup(String key) throws RemoteException;
 
     /**
-     * Permet de recupere les x dernier cle ajouter par les utilisateurs
+     * Permet de recupere les x dernieres cle ajouter par les utilisateurs
      * @param x
      * @return Liste de cle
      */
-    public List<String> dernierCleAjouter(int x) throws RemoteException;
+    public List<String> derniereCleAjouter(int x) throws RemoteException;
     
     /**
-     * Permet de recupere les x dernier cle demander par les utilisateurs
+     * Permet de recupere les x dernieres cle demander par les utilisateurs
      * @param x
      * @return Liste de cle
      */
-    public List<String> dernierCleDemander(int x) throws RemoteException;
+    public List<String> derniereCleDemander(int x) throws RemoteException;
     
     /**
-     * Permet de recupere les x dernier objets demander par les utilisateurs
+     * Permet de recupere les x derniers objets demander par les utilisateurs
      * @param x
      * @return Liste d'objet serialisable
      */
@@ -50,13 +50,13 @@ public interface MaRegistryInterface extends Remote{
      * @param x
      * @return Liste de cle
      */
-    public HashMap<String, Integer> getMapCleFreqDemand(int x) throws RemoteException;
+    public HashMap<String, Integer> getMapCleFreqDemander(int x) throws RemoteException;
     
     /**
      * Permet de récupérer la clé la plus demandée
      * @return clé
      * @throws RemoteException 
      */
-    public String getClePlusDemande() throws RemoteException;
+    public String getClePlusDemander() throws RemoteException;
 
 }

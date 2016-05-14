@@ -4,8 +4,7 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.util.HashMap;
-import java.util.Scanner;
+
 
 import applicationLibrairieNumerique.serviceRMI.Librairie;
 import applicationLibrairieNumerique.serviceRMI.LibrairieInterface;
@@ -30,9 +29,7 @@ import objetRMICommun.MaRegistryInterface;
 public class ServerApplicationLibrairie {
 
     private InfoConnectionJMS infoJMSLibrairy = new InfoConnectionJMS();
-    
-    private int nombreClient = 0;;
-    
+        
     public static void main(String[] args) {
         ServerApplicationLibrairie server = new ServerApplicationLibrairie();
 

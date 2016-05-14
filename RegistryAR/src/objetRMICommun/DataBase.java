@@ -56,7 +56,7 @@ public class DataBase {
         
     }
     
-    public List<String> dernierCleDemander(int x){
+    public List<String> derniereCleDemander(int x){
         List<String> liste = new ArrayList<>();
         
         int size = listeDemandeCle.size();
@@ -70,7 +70,7 @@ public class DataBase {
         return liste;
     }
     
-    public List<String> dernierCleAjouter(int x){
+    public List<String> derniereCleAjouter(int x){
         List<String> liste = new ArrayList<>();
         
         int size = listeCle.size();
@@ -84,6 +84,7 @@ public class DataBase {
         return liste;
     }
     
+
 
     public List<Serializable> dernierObjetAjouter(int x){
         List<Serializable> liste = new ArrayList<>();
@@ -100,16 +101,13 @@ public class DataBase {
     }
 
 
+
     public ArrayList<String> getListeCleDemander() {
         return listeDemandeCle;
     }
 
-    /**
-     * Permet de recupere toute les cle qui on ete demande au moins x fois
-     * @param x
-     * @return
-     */
-    public HashMap<String, Integer> getMapCleFreqDemand(int x) {
+
+    public HashMap<String, Integer> getMapCleFreqDemander(int x) {
         
         HashMap<String, Integer> map = new HashMap<>();
         
@@ -128,11 +126,8 @@ public class DataBase {
         return map;
     }
     
-    /**
-     * Permet de récupérer la clé la plus demandée
-     * Renvoie null s'il n'y a pas de clé
-     */
-    public String getClePlusDemande() {
+
+    public String getClePlusDemander() {
         Iterator<String> it = tableCleNbDemander.keySet().iterator();
         String keyMax = null;
         int max = 0;
