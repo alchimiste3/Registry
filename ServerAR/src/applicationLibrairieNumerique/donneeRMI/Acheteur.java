@@ -9,9 +9,8 @@ import applicationLibrairieNumerique.serviceRMI.AccesClientLibrairieInterface;
 @SuppressWarnings("serial")
 public class Acheteur implements Serializable{
 
-    String nom;
-    String numCarteCredit;
-    
+    private String nom;
+    private String numCarteCredit;
     
     
     public Acheteur(String nom, String numCarteCredit) {
@@ -21,7 +20,7 @@ public class Acheteur implements Serializable{
     }
 
     
-    AccesClientLibrairieInterface client;
+
 
     List<String> livreAcheter = new ArrayList<>();
 
@@ -43,13 +42,7 @@ public class Acheteur implements Serializable{
         this.numCarteCredit = numCarteCredit;
     }
 
-    public AccesClientLibrairieInterface getClient() {
-        return client;
-    }
 
-    public void setClient(AccesClientLibrairieInterface client) {
-        this.client = client;
-    }
 
     public List<String> getLivreAcheter() {
         return livreAcheter;

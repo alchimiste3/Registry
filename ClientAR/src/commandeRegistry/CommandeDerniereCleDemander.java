@@ -18,7 +18,7 @@ public class CommandeDerniereCleDemander {
     public void execute() throws RemoteException{
         List<String> liste = maRMI.derniereCleDemander(nb);
         
-        System.out.println("Voici la liste des "+ nb + " clés demander");
+        System.out.println("Voici la liste des "+ nb + " dernieres clés demander");
         for(String s : liste){
             System.out.println("   →"+s);
         }

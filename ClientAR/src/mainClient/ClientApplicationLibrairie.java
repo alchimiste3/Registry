@@ -15,7 +15,14 @@ import applicationLibrairieNumerique.commande.CommandeCommanderLivre;
 import applicationLibrairieNumerique.commande.CommandeInfo;
 import applicationLibrairieNumerique.commande.CommandeInscription;
 import applicationLibrairieNumerique.commande.CommandeListerLivre;
+import applicationLibrairieNumerique.serviceRMI.AccesClientLibrairie;
+import applicationLibrairieNumerique.serviceRMI.AccesClientLibrairieInterface;
 import applicationLibrairieNumerique.serviceRMI.LibrairieInterface;
+import commandeRegistry.CommandeClePlusDemander;
+import commandeRegistry.CommandeDernierObjetAjouter;
+import commandeRegistry.CommandeDerniereCleAjouter;
+import commandeRegistry.CommandeDerniereCleDemander;
+import commandeRegistry.CommandeGetMapCleFreqDemander;
 import objetRMICommun.InfoConnectionJMS;
 import objetRMICommun.MaRegistryInterface;
 
@@ -41,14 +48,22 @@ public class ClientApplicationLibrairie {
     
     private LibrairieInterface librairie;
     
+    private AccesClientLibrairie client;
+
     private ClientJMS jms;
     
-    public ClientApplicationLibrairie() {
+    public ClientApplicationLibrairie() throws RemoteException {
         listeCommande.add("inscription → permet a un acheteur de s'inscrire a la librairie");
         listeCommande.add("info → permet de récupérer les  info sur la librairie");
         listeCommande.add("acheterLivre → permet d'acheter un livre");
-        listeCommande.add("listerLivre → permet d'affciher la liste des livres");
+        listeCommande.add("listerLivre → permet d'afficher la liste des livres");
         listeCommande.add("commanderLivre → permet d'envoyer un demande de rappele pour la sortie d'un livre");
+        listeCommande.add("\n Les commande de la Registry :");
+        listeCommande.add("clePlusDemandee → permet d'afficher la cle la plus demander");
+        listeCommande.add("derniereCleAdd → permet d'afficher les dernieres cles ajouter");
+        listeCommande.add("derniereObjetAdd → permet d'afficher les dernieres objet ajouter");
+        listeCommande.add("derniereCleDemandee → permet d'afficher les dernieres cles demandaient");
+        listeCommande.add("freqCleDemande → permet d'afficher les cle les plus demender et leurs nombre de demandes");
 
     }
     
@@ -96,6 +111,7 @@ public class ClientApplicationLibrairie {
                 
             librairie = (LibrairieInterface) maRMI.lookup("Librairie");     
             
+            client = new AccesClientLibrairie();
             
             @SuppressWarnings("resource")
             Scanner scanner = new Scanner(System.in);  
@@ -115,7 +131,7 @@ public class ClientApplicationLibrairie {
             jms.init(infoJMS.getNom(), listeMessage);
       
             
-            System.out.println("Vous pouvez utiliser plusieurs commandes (entrer \"?\" pour avoir la liste");
+            System.out.println("Vous pouvez utiliser plusieurs commandes (entrer \"?\" pour avoir la liste)");
     
             String rep;
             String nomUtilisateur;
@@ -167,7 +183,35 @@ public class ClientApplicationLibrairie {
                         System.out.println("nom du livre ?");
                         nomLivre = scanner.nextLine();
 
-                        new CommandeCommanderLivre(librairie, nomUtilisateur, nomLivre, listeMessage).execute();
+                        new CommandeCommanderLivre(librairie, client, nomUtilisateur, nomLivre).execute();
+                    break;
+                    
+                    case "clePlusDemandee":
+                        new CommandeClePlusDemander(maRMI).execute();
+                    break;
+                    case "derniereCleAdd":
+                        System.out.println("combient de cle ? ");
+                        int nb = Integer.parseInt(scanner.nextLine());
+
+                        new CommandeDerniereCleAjouter(maRMI, nb).execute();
+                    break;
+                    case "derniereObjetAdd":
+                        System.out.println("combient d'objet ? ");
+                        nb = Integer.parseInt(scanner.nextLine());
+
+                        new CommandeDernierObjetAjouter(maRMI, nb).execute();
+                       break;
+                    case "derniereCleDemandee":
+                        System.out.println("combient de cle ? ");
+                        nb = Integer.parseInt(scanner.nextLine());
+
+                        new CommandeDerniereCleDemander(maRMI, nb).execute();
+                    break;
+                    case "freqCleDemande":
+                        System.out.println("combient de cle ? ");
+                        nb = Integer.parseInt(scanner.nextLine());
+
+                        new CommandeGetMapCleFreqDemander(maRMI, nb).execute();
                     break;
                     default:
                     break;

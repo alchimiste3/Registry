@@ -21,7 +21,7 @@ public interface LibrairieInterface extends Remote {
     
     public List<String> ListeLivre() throws RemoteException;
    
-    public boolean rappeleCommandeLivre(String nomAcheteur, String nomLivre) throws RemoteException;
+    public boolean rappeleCommandeLivre(AccesClientLibrairieInterface client, String nomAcheteur, String nomLivre) throws RemoteException;
     
 
     public InfoConnectionJMS abonnement(String idClient) throws RemoteException; 

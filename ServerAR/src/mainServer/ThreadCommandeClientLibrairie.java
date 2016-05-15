@@ -45,7 +45,7 @@ public class ThreadCommandeClientLibrairie extends Thread{
 
             System.out.println("On rappele le client");
             
-            
+            System.out.println("client = "+client);
             client.appeler("Le livre "+nomLivre+" est disponible");
             
         } catch (InterruptedException | RemoteException e) {

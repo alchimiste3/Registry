@@ -25,17 +25,18 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
     
     private List<String> listeLivre = new ArrayList<>();
     
-    MessageProducer prod = null;
+    private MessageProducer prod = null;
 
+    
     public Librairie(MaRegistryInterface maRMI, InfoConnectionJMS infoJMSLibrairy, ServerJMS jms) throws RemoteException {
         super();
         this.jms = jms;
         this.maRMI = maRMI;
         this.infoJMSLibrairy = infoJMSLibrairy;
+        
         /**
          * On creer plusieur libre pour remplire la librairie
          */
-        
         Livre livre1 = new Livre("Millénium - Tome 1 : Les hommes qui n'aimaient pas les femmes",
                 "Stieg Larsson",
                 12,
@@ -148,17 +149,20 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
 
   
     @Override
-    public boolean rappeleCommandeLivre(String nomAcheteur, String nomLivre) throws RemoteException {
+    public boolean rappeleCommandeLivre(AccesClientLibrairieInterface client, String nomAcheteur, String nomLivre) throws RemoteException {
         HashMap<String, String> map = new HashMap<>();
 
         Acheteur acheteur = (Acheteur)maRMI.lookup(nomAcheteur);
         
+        System.out.println(acheteur);
+        System.out.println(prod);
+
         if(acheteur == null && prod != null){
             System.out.println(infoJMSLibrairy.getNom());
             System.out.println("acheteur null");
             map = new HashMap<>();
             map.put("utilisateur", nomAcheteur);
-            map.put("message", "rappeleSortieLivre : L'utilisateur n'est pas enregistrer");
+            map.put("message", "rappeleCommandeLivre : L'utilisateur n'est pas enregistrer");
             
             jms.envoyerMessage(prod, "Librairie", map);
             return false;
@@ -166,14 +170,15 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
         
         Livre livre = (Livre)maRMI.lookup(nomLivre);
 
-        
+        System.out.println(livre);
+
         if(livre != null && prod != null){
             
             System.out.println("livre null");
 
             map = new HashMap<>();
             map.put("utilisateur", nomAcheteur);
-            map.put("message", "rappeleSortieLivre : Ce livre existe déjà");
+            map.put("message", "rappeleCommandeLivre : Ce livre existe déjà");
           
             jms.envoyerMessage(prod, "Librairie", map);
             return false;
@@ -182,13 +187,13 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
         if(prod != null){
             map = new HashMap<>();
             map.put("utilisateur", nomAcheteur);
-            map.put("message", "rappeleSortieLivre : le livre sera ajouter dans 50 seconde");  
+            map.put("message", "rappeleCommandeLivre : le livre sera ajouter a la librairie dans 50 seconde");  
             jms.envoyerMessage(prod, "Librairie", map);
         }
 
 
         // Ici on attend toujous 50 second pour une commande, c'est une limitation du code
-        new ThreadCommandeClientLibrairie(acheteur.getClient(), nomLivre, this, 50000);
+        new ThreadCommandeClientLibrairie(client , nomLivre, this, 50000).start();;
         return true;
     }
 

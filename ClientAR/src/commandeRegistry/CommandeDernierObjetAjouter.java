@@ -13,13 +13,14 @@ public class CommandeDernierObjetAjouter {
 
     public CommandeDernierObjetAjouter(MaRegistryInterface maRMI, int nb){
         this.maRMI = maRMI;
+        this.nb = nb;
 
     }
 
     public void execute() throws RemoteException{
         List<Serializable> liste = maRMI.dernierObjetAjouter(nb);
         
-        System.out.println("Voici la liste des "+ nb + " objets ajoutés");
+        System.out.println("Voici la liste des "+ nb + " derniers objets ajoutés");
         for(Serializable o : liste){
             System.out.println("   →"+o);
         }

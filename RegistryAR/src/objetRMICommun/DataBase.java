@@ -89,12 +89,16 @@ public class DataBase {
     public List<Serializable> dernierObjetAjouter(int x){
         List<Serializable> liste = new ArrayList<>();
         
-        int size = listeDemandeCle.size();
-        
+        int size = listeCle.size();
+
         for(int i = size - 1 ; i > size - x - 1; i--){
             if(i < 0) break;
-           
-            liste.add(mapObjetSeri.get(listeDemandeCle.get(i)));
+                       
+            if(mapObjetSeri.containsKey(listeCle.get(i))){
+                Serializable obj = mapObjetSeri.get(listeCle.get(i));
+                liste.add(obj);
+            }
+
         }
         
         return liste;

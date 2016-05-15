@@ -7,6 +7,7 @@ import javax.jms.JMSException;
 import javax.jms.MapMessage;
 import javax.jms.Message;
 
+import applicationLibrairieNumerique.serviceRMI.AccesClientLibrairieInterface;
 import applicationLibrairieNumerique.serviceRMI.LibrairieInterface;
 
 public class CommandeCommanderLivre {
@@ -14,20 +15,20 @@ public class CommandeCommanderLivre {
     private String nomUtilisateur;
     private String nomLivre;
     private LibrairieInterface librairie;
-    private List<Message> listeMessage;
+    private AccesClientLibrairieInterface client;
+
     
-    public CommandeCommanderLivre(LibrairieInterface librairie, String nomUtilisateur, String nomLivre, List<Message> listeMessage) {
+    public CommandeCommanderLivre(LibrairieInterface librairie, AccesClientLibrairieInterface client, String nomUtilisateur, String nomLivre) {
         this.nomUtilisateur = nomUtilisateur;
         this.nomLivre = nomLivre;
         this.librairie = librairie;
-        this.listeMessage = listeMessage;
+        this.client = client;
     }
 
     public void execute() throws RemoteException, JMSException{
-        int sizelisteMessage = listeMessage.size();
 
-        System.out.println("→librairie.rappeleCommandeLivre("+nomUtilisateur+", "+nomLivre+")");
-        boolean rep = librairie.rappeleCommandeLivre(nomUtilisateur, nomLivre);
+        System.out.println("→librairie.rappeleCommandeLivre("+ client +", "+nomUtilisateur+", "+nomLivre+")");
+        boolean rep = librairie.rappeleCommandeLivre(client, nomUtilisateur, nomLivre);
         
         if(rep) System.out.println("Votre commande est comfirmer");
         else System.out.println("commande impossible");
