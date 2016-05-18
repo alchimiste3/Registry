@@ -7,16 +7,18 @@ import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import objetRMICommun.InfoConnectionJMS;
 import objetRMICommun.MaRegistryInterface;
 
 public class ClientBotany {
     
         private List<String> listeCommande = new ArrayList<>();
+        private BotanyJMSClient jms;
 
     public ClientBotany() {
-        listeCommande.add("ajouter nomPlante famille description -> Permet d'ajouter une plante à la base de données");
-        listeCommande.add("info nomPlante -> Permet de consulter les informations sur une plante");
-        listeCommande.add("liste -> Permet de récupérer la liste des plantes contenues dans la base de données");
+        listeCommande.add("ajouter -> Permet d'ajouter une plante à la base de données");
+        listeCommande.add("info -> Permet de consulter les informations sur une plante");
+        listeCommande.add("lister -> Permet de récupérer la liste des plantes contenues dans la base de données");
         
     }
          
@@ -59,7 +61,17 @@ public class ClientBotany {
     
         public void run(MaRegistryInterface maRMI){
         try{
-            BotanyDBInterface service = (BotanyDBInterface) maRMI.lookup("BotanyDB");           
+            BotanyDBInterface service = (BotanyDBInterface) maRMI.lookup("BotanyDB");    
+            
+            InfoConnectionJMS infoJMS = new InfoConnectionJMS();
+            infoJMS.setUrl("tcp://localhost:61616");
+            infoJMS.setLogin("user");
+            infoJMS.setPassword("user");
+            infoJMS.setNom("queueBotany"); 
+            jms = new BotanyJMSClient();
+            jms.connection(infoJMS.getUrl(), infoJMS.getLogin(), infoJMS.getPassword());
+            jms.init(infoJMS.getNom());
+            
             Scanner scanner = new Scanner(System.in);        
             
             System.out.println("Vous pouvez utiliser plusieurs commandes (entrer \"?\" pour avoir la liste");
