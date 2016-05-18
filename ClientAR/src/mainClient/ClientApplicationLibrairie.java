@@ -16,7 +16,6 @@ import applicationLibrairieNumerique.commande.CommandeInfo;
 import applicationLibrairieNumerique.commande.CommandeInscription;
 import applicationLibrairieNumerique.commande.CommandeListerLivre;
 import applicationLibrairieNumerique.serviceRMI.AccesClientLibrairie;
-import applicationLibrairieNumerique.serviceRMI.AccesClientLibrairieInterface;
 import applicationLibrairieNumerique.serviceRMI.LibrairieInterface;
 import commandeRegistry.CommandeClePlusDemander;
 import commandeRegistry.CommandeDernierObjetAjouter;
@@ -28,31 +27,22 @@ import objetRMICommun.MaRegistryInterface;
 
 
 /**
- * Il faut demarer le registry avant de run :
- * dans le dossier des point class de interfaceDistante pour lancer la rmi avec "rmiregistry 1098"
  * 
- * 
- * -Djava.rmi.server.hostname="10.212.115.127"
- * 
- * 
- * -Djava.rmi.server.codebase=http://localhost:2000/
- * 
- * 
- * @author user
+ * Class qui permet de creer un client pour la librairie
+ * @author Quentin Laborde
  *
  */
 public class ClientApplicationLibrairie {
     
     private List<String> listeCommande = new ArrayList<>();
     private ArrayList<Message> listeMessage = new ArrayList<>();
-    
-    private LibrairieInterface librairie;
-    
+    private LibrairieInterface librairie;    
     private AccesClientLibrairie client;
 
     private ClientJMS jms;
     
     public ClientApplicationLibrairie() throws RemoteException {
+        listeCommande.add("\n Les commande de la Librairie :");
         listeCommande.add("inscription → permet a un acheteur de s'inscrire a la librairie");
         listeCommande.add("info → permet de récupérer les  info sur la librairie");
         listeCommande.add("acheterLivre → permet d'acheter un livre");
@@ -140,7 +130,7 @@ public class ClientApplicationLibrairie {
 
             while(true){
                 
-                System.out.println("Entrer une commande !");
+                System.out.println("Entrer une commande !\n");
                 rep = scanner.nextLine();
 
                 switch (rep) {
@@ -208,7 +198,7 @@ public class ClientApplicationLibrairie {
                         new CommandeDerniereCleDemander(maRMI, nb).execute();
                     break;
                     case "freqCleDemande":
-                        System.out.println("combient de cle ? ");
+                        System.out.println("nombre de demande minimum ? ");
                         nb = Integer.parseInt(scanner.nextLine());
 
                         new CommandeGetMapCleFreqDemander(maRMI, nb).execute();

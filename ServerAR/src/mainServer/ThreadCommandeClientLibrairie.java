@@ -7,6 +7,11 @@ import applicationLibrairieNumerique.donneeRMI.Livre;
 import applicationLibrairieNumerique.serviceRMI.AccesClientLibrairieInterface;
 import applicationLibrairieNumerique.serviceRMI.Librairie;
 
+/**
+ * Thread qui s'execute lorsque le client veut avoir un rappel que une commande (en parallele au serveur)
+ * @author Quentin Laborde
+ *
+ */
 public class ThreadCommandeClientLibrairie extends Thread{
     
     AccesClientLibrairieInterface client;

@@ -4,6 +4,11 @@ import java.rmi.Naming;
 
 import objetRMICommun.MaRegistry;
 
+/**
+ * Class qui permet de creer un serveur Registry qui fournie les services d'une Registry
+ * @author Quentin Laborde
+ *
+ */
 public class ServerRegistry {
 
     public static void main(String[] args) {

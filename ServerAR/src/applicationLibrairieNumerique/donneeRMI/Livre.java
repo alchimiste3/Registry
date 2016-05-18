@@ -3,6 +3,11 @@ package applicationLibrairieNumerique.donneeRMI;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
+/**
+ * Class de type Donnee qui represente un Livre
+ * @author Quentin Laborde
+ *
+ */
 public class Livre implements Serializable{
 
 

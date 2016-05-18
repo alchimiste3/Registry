@@ -1,15 +1,17 @@
 package applicationLibrairieNumerique.commande;
 
 import java.rmi.RemoteException;
-import java.util.List;
-
 import javax.jms.JMSException;
-import javax.jms.MapMessage;
-import javax.jms.Message;
+
 
 import applicationLibrairieNumerique.serviceRMI.AccesClientLibrairieInterface;
 import applicationLibrairieNumerique.serviceRMI.LibrairieInterface;
 
+/**
+ * CommandeCommanderLivre
+ * @author Quentin Laborde
+ *
+ */
 public class CommandeCommanderLivre {
 
     private String nomUtilisateur;
@@ -27,7 +29,7 @@ public class CommandeCommanderLivre {
 
     public void execute() throws RemoteException, JMSException{
 
-        System.out.println("→librairie.rappeleCommandeLivre("+ client +", "+nomUtilisateur+", "+nomLivre+")");
+        System.out.println("→librairie.rappeleCommandeLivre(client , "+nomUtilisateur+", "+nomLivre+")");
         boolean rep = librairie.rappeleCommandeLivre(client, nomUtilisateur, nomLivre);
         
         if(rep) System.out.println("Votre commande est comfirmer");

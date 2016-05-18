@@ -5,6 +5,11 @@ import java.util.List;
 
 import applicationLibrairieNumerique.serviceRMI.LibrairieInterface;
 
+/**
+ * CommandeListerLivre
+ * @author Quentin Laborde
+ *
+ */
 public class CommandeListerLivre {
 
     private LibrairieInterface librairie;

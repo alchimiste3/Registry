@@ -11,6 +11,11 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+/**
+ * Class qui permet de creer un client pour une queue
+ * @author Quentin Laborde
+ *
+ */
 public class ClientJMS  implements javax.jms.MessageListener{
 
     private ArrayList<Message> listeMessage = new ArrayList<>();
@@ -86,7 +91,7 @@ public class ClientJMS  implements javax.jms.MessageListener{
                     System.out.print(((MapMessage)message).getString("message"));
                 }
                 
-                System.out.println("");
+                System.out.println("\nEntrer une commande !\n");
 
             }
         } catch (JMSException e) {

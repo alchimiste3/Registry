@@ -6,6 +6,11 @@ import java.util.Iterator;
 
 import objetRMICommun.MaRegistryInterface;
 
+/**
+ * CommandeGetMapCleFreqDemander
+ * @author Quentin Laborde
+ *
+ */
 public class CommandeGetMapCleFreqDemander {
 
     private MaRegistryInterface maRMI;
@@ -26,7 +31,7 @@ public class CommandeGetMapCleFreqDemander {
         for(;it.hasNext();){         
             String keyComp = it.next();
             int value = map.get(keyComp);
-            System.out.println("   →cle = "+keyComp+" - nombre de fois = "+value);
+            System.out.println("   →cle = "+keyComp+" → nombre de fois = "+value);
         }
     }
   

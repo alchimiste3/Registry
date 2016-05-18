@@ -612,3 +612,58 @@ org.springframework.web.util.NestedServletException: Request processing failed; 
 2016-05-15 16:58:05,454 | INFO  | Apache ActiveMQ 5.13.2 (localhost, ID:Axxx-39021-1463319265562-0:1) is shutdown | org.apache.activemq.broker.BrokerService | Thread-27
 2016-05-15 16:58:05,455 | INFO  | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@39aeed2f: startup date [Sun May 15 15:34:23 CEST 2016]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | Thread-27
 2016-05-15 16:58:05,477 | INFO  | Destroying Spring FrameworkServlet 'dispatcher' | /admin | Thread-27
+2016-05-18 13:48:28,951 | INFO  | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@39aeed2f: startup date [Wed May 18 13:48:28 CEST 2016]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | main
+2016-05-18 13:48:30,340 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/home/user/Application_Repartie/Registry/activemq/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2016-05-18 13:48:30,783 | INFO  | KahaDB is version 6 | org.apache.activemq.store.kahadb.MessageDatabase | main
+2016-05-18 13:48:30,816 | INFO  | Recovering from the journal @1:7282770 | org.apache.activemq.store.kahadb.MessageDatabase | main
+2016-05-18 13:48:30,836 | INFO  | Recovery replayed 476 operations from the journal in 0.044 seconds. | org.apache.activemq.store.kahadb.MessageDatabase | main
+2016-05-18 13:48:30,845 | INFO  | PListStore:[/home/user/Application_Repartie/Registry/activemq/data/localhost/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2016-05-18 13:48:30,978 | INFO  | Apache ActiveMQ 5.13.2 (localhost, ID:Axxx-34340-1463572110857-0:1) is starting | org.apache.activemq.broker.BrokerService | main
+2016-05-18 13:48:31,054 | INFO  | Listening for connections at: tcp://Axxx:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2016-05-18 13:48:31,056 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | main
+2016-05-18 13:48:31,061 | INFO  | Listening for connections at: amqp://Axxx:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2016-05-18 13:48:31,064 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | main
+2016-05-18 13:48:31,068 | INFO  | Listening for connections at: stomp://Axxx:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2016-05-18 13:48:31,070 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | main
+2016-05-18 13:48:31,075 | INFO  | Listening for connections at: mqtt://Axxx:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2016-05-18 13:48:31,078 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | main
+2016-05-18 13:48:31,341 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@19c65cdc{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | main
+2016-05-18 13:48:31,397 | INFO  | Listening for connections at ws://Axxx:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | main
+2016-05-18 13:48:31,399 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | main
+2016-05-18 13:48:31,401 | INFO  | Apache ActiveMQ 5.13.2 (localhost, ID:Axxx-34340-1463572110857-0:1) started | org.apache.activemq.broker.BrokerService | main
+2016-05-18 13:48:31,402 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | main
+2016-05-18 13:48:31,404 | WARN  | Store limit is 102400 mb (current store usage is 7 mb). The data directory: /home/user/Application_Repartie/Registry/activemq/data/kahadb only has 7556 mb of usable space. - resetting to maximum available disk space: 7556 mb | org.apache.activemq.broker.BrokerService | main
+2016-05-18 13:48:31,406 | WARN  | Temporary Store limit is 51200 mb (current store usage is 0 mb). The data directory: /home/user/Application_Repartie/Registry/activemq/data only has 7548 mb of usable space. - resetting to maximum available disk space: 7548 mb | org.apache.activemq.broker.BrokerService | main
+2016-05-18 13:48:32,003 | INFO  | No Spring WebApplicationInitializer types detected on classpath | /admin | main
+2016-05-18 13:48:32,310 | INFO  | ActiveMQ WebConsole available at http://0.0.0.0:8161/ | org.apache.activemq.web.WebConsoleStarter | main
+2016-05-18 13:48:32,311 | INFO  | ActiveMQ Jolokia REST API available at http://0.0.0.0:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | main
+2016-05-18 13:48:32,365 | INFO  | Initializing Spring FrameworkServlet 'dispatcher' | /admin | main
+2016-05-18 13:48:32,714 | INFO  | No Spring WebApplicationInitializer types detected on classpath | /api | main
+2016-05-18 13:48:32,840 | INFO  | jolokia-agent: Using policy access restrictor classpath:/jolokia-access.xml | /api | main
+2016-05-18 14:40:34,252 | WARN  | Transport Connection to: tcp://127.0.0.1:37866 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:37866@61616
+2016-05-18 14:56:06,795 | WARN  | Transport Connection to: tcp://127.0.0.1:37914 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:37914@61616
+2016-05-18 14:56:08,571 | WARN  | Transport Connection to: tcp://127.0.0.1:37888 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:37888@61616
+2016-05-18 15:03:04,109 | WARN  | Transport Connection to: tcp://127.0.0.1:38038 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:38038@61616
+2016-05-18 15:03:06,306 | WARN  | Transport Connection to: tcp://127.0.0.1:38012 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:38012@61616
+2016-05-18 15:09:46,831 | WARN  | Transport Connection to: tcp://127.0.0.1:38120 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:38120@61616
+2016-05-18 15:09:48,040 | WARN  | Transport Connection to: tcp://127.0.0.1:38094 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:38094@61616
+2016-05-18 15:15:59,568 | WARN  | Transport Connection to: tcp://127.0.0.1:38332 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:38332@61616
+2016-05-18 15:16:01,069 | WARN  | Transport Connection to: tcp://127.0.0.1:38306 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:38306@61616
+2016-05-18 15:29:27,101 | WARN  | Transport Connection to: tcp://127.0.0.1:38420 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:38420@61616
+2016-05-18 15:29:28,308 | WARN  | Transport Connection to: tcp://127.0.0.1:38394 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:38394@61616
+2016-05-18 15:31:51,732 | WARN  | Transport Connection to: tcp://127.0.0.1:38548 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:38548@61616
+2016-05-18 15:31:52,235 | WARN  | Transport Connection to: tcp://127.0.0.1:38574 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///127.0.0.1:38574@61616
+2016-05-18 15:32:17,528 | INFO  | Apache ActiveMQ 5.13.2 (localhost, ID:Axxx-34340-1463572110857-0:1) is shutting down | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,533 | INFO  | Connector openwire stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,546 | INFO  | Connector amqp stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,547 | INFO  | Connector stomp stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,550 | INFO  | Connector mqtt stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,563 | INFO  | Connector ws stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,566 | INFO  | PListStore:[/home/user/Application_Repartie/Registry/activemq/data/localhost/tmp_storage] stopped | org.apache.activemq.store.kahadb.plist.PListStoreImpl | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,567 | INFO  | Stopping async queue tasks | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,568 | INFO  | Stopping async topic tasks | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,568 | INFO  | Stopped KahaDB | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,892 | INFO  | Apache ActiveMQ 5.13.2 (localhost, ID:Axxx-34340-1463572110857-0:1) uptime 1 hour 43 minutes | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,893 | INFO  | Apache ActiveMQ 5.13.2 (localhost, ID:Axxx-34340-1463572110857-0:1) is shutdown | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,894 | INFO  | Closing org.apache.activemq.xbean.XBeanBrokerFactory$1@39aeed2f: startup date [Wed May 18 13:48:28 CEST 2016]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | ActiveMQ ShutdownHook
+2016-05-18 15:32:17,901 | INFO  | Destroying Spring FrameworkServlet 'dispatcher' | /admin | ActiveMQ ShutdownHook

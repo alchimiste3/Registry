@@ -6,6 +6,11 @@ import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Interface du service Registry qui fournie des serices a un client
+ * @author Quentin Laborde
+ *
+ */
 public interface MaRegistryInterface extends Remote{
     
     /**

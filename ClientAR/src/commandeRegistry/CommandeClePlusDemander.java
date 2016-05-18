@@ -1,16 +1,13 @@
 package commandeRegistry;
 
 import java.rmi.RemoteException;
-import java.util.List;
-
-import javax.jms.JMSException;
-import javax.jms.MapMessage;
-import javax.jms.Message;
-
-import applicationLibrairieNumerique.donneeRMI.Livre;
-import applicationLibrairieNumerique.serviceRMI.LibrairieInterface;
 import objetRMICommun.MaRegistryInterface;
 
+/**
+ * CommandeClePlusDemander
+ * @author Quentin Laborde
+ *
+ */
 public class CommandeClePlusDemander {
 
     private MaRegistryInterface maRMI;

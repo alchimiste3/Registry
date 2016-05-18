@@ -13,6 +13,11 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+/**
+ * Class permettant de fabriquer des queues
+ * @author  Quentin Laborde
+ *
+ */
 public class ServerJMS {
 
     

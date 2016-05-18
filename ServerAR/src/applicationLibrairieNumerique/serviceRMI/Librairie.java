@@ -17,6 +17,11 @@ import objetRMICommun.InfoConnectionJMS;
 import objetRMICommun.MaRegistryInterface;
 
 @SuppressWarnings("serial")
+/**
+ * Class qui implémente les service de la librairie
+ * @author Quentin Laborde
+ *
+ */
 public class Librairie extends UnicastRemoteObject implements LibrairieInterface{
     
     InfoConnectionJMS infoJMSLibrairy;
@@ -95,8 +100,15 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
     }
 
     @Override
-    public Livre acheterLivre(String nomAcheteur, String nomLivre) throws RemoteException {        
-        Acheteur acheteur = (Acheteur)maRMI.lookup(nomAcheteur);
+    public Livre acheterLivre(String nomAcheteur, String nomLivre) throws RemoteException {  
+        Acheteur acheteur = null;
+        try{
+           acheteur = (Acheteur)maRMI.lookup(nomAcheteur);
+
+        }
+        catch (ClassCastException e){
+            // acheteur = null
+        }
         
         HashMap<String, String> map = new HashMap<>();
         
@@ -112,7 +124,13 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
             return null;
         }
         
-        Livre livre = (Livre)maRMI.lookup(nomLivre);
+        Livre livre = null;
+        try{
+            livre = (Livre)maRMI.lookup(nomLivre);
+         }
+         catch (ClassCastException e){
+             // client = null
+         }
         
         if(livre == null && prod != null){
             
@@ -152,10 +170,15 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
     public boolean rappeleCommandeLivre(AccesClientLibrairieInterface client, String nomAcheteur, String nomLivre) throws RemoteException {
         HashMap<String, String> map = new HashMap<>();
 
-        Acheteur acheteur = (Acheteur)maRMI.lookup(nomAcheteur);
-        
-        System.out.println(acheteur);
-        System.out.println(prod);
+        Acheteur acheteur = null;
+        try{
+           acheteur = (Acheteur)maRMI.lookup(nomAcheteur);
+
+        }
+        catch (ClassCastException e){
+            // acheteur = null
+        }
+
 
         if(acheteur == null && prod != null){
             System.out.println(infoJMSLibrairy.getNom());
@@ -168,9 +191,14 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
             return false;
         }
         
-        Livre livre = (Livre)maRMI.lookup(nomLivre);
-
-        System.out.println(livre);
+        Livre livre = null;
+        try{
+            livre = (Livre)maRMI.lookup(nomLivre);
+         }
+         catch (ClassCastException e){
+             // client = null
+         }
+        
 
         if(livre != null && prod != null){
             

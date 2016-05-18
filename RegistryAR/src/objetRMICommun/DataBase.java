@@ -6,7 +6,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-
+/**
+ * Class qui Fournie les methodes pour stocker et rechercher un objet serialisable
+ * @author Quentin Laborde
+ *
+ */
 public class DataBase { 
     
     /**

@@ -6,6 +6,11 @@ import java.util.List;
 
 import objetRMICommun.MaRegistryInterface;
 
+/**
+ * CommandeDernierObjetAjouter
+ * @author Quentin Laborde
+ *
+ */
 public class CommandeDernierObjetAjouter {
 
     private MaRegistryInterface maRMI;
@@ -20,7 +25,7 @@ public class CommandeDernierObjetAjouter {
     public void execute() throws RemoteException{
         List<Serializable> liste = maRMI.dernierObjetAjouter(nb);
         
-        System.out.println("Voici la liste des "+ nb + " derniers objets ajoutés");
+        System.out.println("Voici la liste des "+ nb + " derniers objets ajoutés (rebind)");
         for(Serializable o : liste){
             System.out.println("   →"+o);
         }

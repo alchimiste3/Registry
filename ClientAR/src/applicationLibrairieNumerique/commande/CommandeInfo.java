@@ -4,6 +4,11 @@ import java.rmi.RemoteException;
 
 import applicationLibrairieNumerique.serviceRMI.LibrairieInterface;
 
+/**
+ * CommandeInfo
+ * @author Quentin Laborde
+ *
+ */
 public class CommandeInfo {
 
     private LibrairieInterface librairie;

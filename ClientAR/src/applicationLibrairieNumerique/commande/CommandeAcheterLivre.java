@@ -4,12 +4,16 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 import javax.jms.JMSException;
-import javax.jms.MapMessage;
 import javax.jms.Message;
 
 import applicationLibrairieNumerique.donneeRMI.Livre;
 import applicationLibrairieNumerique.serviceRMI.LibrairieInterface;
 
+/**
+ * CommandeAcheterLivre
+ * @author Quentin Laborde
+ *
+ */
 public class CommandeAcheterLivre {
 
     private String nomUtilisateur;
@@ -26,7 +30,6 @@ public class CommandeAcheterLivre {
     }
 
     public void execute() throws RemoteException, JMSException{
-        int sizelisteMessage = listeMessage.size();
         
         System.out.println("→librairie.acheterLivre("+nomUtilisateur+", "+nomLivre+")");
         Livre livre = librairie.acheterLivre(nomUtilisateur, nomLivre);

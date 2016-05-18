@@ -13,17 +13,8 @@ import objetRMICommun.MaRegistryInterface;
 
 
 /**
- * Il faut demarer le registry avant de run :
- * dans le dossier des point class de interfaceDistante pour lancer la rmi avec "rmiregistry 1098"
- * 
- * 
- * -Djava.rmi.server.hostname="10.212.115.127"
- * 
- * 
- * -Djava.rmi.server.codebase=http://localhost:2000/
- * 
- * 
- * @author user
+ * Class qui permet de creer un serveur simulant un libraire en ligne avec des service RMI
+ * @author Quentin Laborde
  *
  */
 public class ServerApplicationLibrairie {

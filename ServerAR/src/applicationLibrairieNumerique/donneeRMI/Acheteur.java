@@ -4,9 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import applicationLibrairieNumerique.serviceRMI.AccesClientLibrairieInterface;
-
 @SuppressWarnings("serial")
+/**
+ * Class qui represente un Acheteur
+ * @author Quentin Laborde
+ *
+ */
 public class Acheteur implements Serializable{
 
     private String nom;

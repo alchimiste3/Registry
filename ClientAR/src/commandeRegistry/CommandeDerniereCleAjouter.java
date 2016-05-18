@@ -5,6 +5,11 @@ import java.util.List;
 
 import objetRMICommun.MaRegistryInterface;
 
+/**
+ * CommandeDerniereCleAjouter
+ * @author Quentin Laborde
+ *
+ */
 public class CommandeDerniereCleAjouter {
 
     private MaRegistryInterface maRMI;
@@ -18,7 +23,7 @@ public class CommandeDerniereCleAjouter {
     public void execute() throws RemoteException{
         List<String> liste = maRMI.derniereCleAjouter(nb);
         
-        System.out.println("Voici la liste des "+ nb + " clés ajouter");
+        System.out.println("Voici la liste des "+ nb + " clés ajouter (rebind)");
         for(String s : liste){
             System.out.println("   →"+s);
         }

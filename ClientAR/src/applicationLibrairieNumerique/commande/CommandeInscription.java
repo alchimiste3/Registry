@@ -4,6 +4,11 @@ import java.rmi.RemoteException;
 
 import applicationLibrairieNumerique.serviceRMI.LibrairieInterface;
 
+/**
+ * CommandeInscription
+ * @author Quentin Laborde
+ *
+ */
 public class CommandeInscription {
 
     private String nomUtilisateur;

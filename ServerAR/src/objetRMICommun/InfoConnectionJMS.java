@@ -3,6 +3,11 @@ package objetRMICommun;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
+/**
+ * Class qui permet de creer les informations d'une queue
+ * @author Quentin Laborde
+ *
+ */
 public class InfoConnectionJMS implements Serializable{
 
     private String url;

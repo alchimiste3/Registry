@@ -9,6 +9,11 @@ import java.util.List;
 
 
 @SuppressWarnings("serial")
+/**
+ * Class qui implemente les services de la Registry
+ * @author Quentin Laborde
+ *
+ */
 public class MaRegistry extends UnicastRemoteObject implements MaRegistryInterface {
     
     DataBase database;
@@ -19,11 +24,12 @@ public class MaRegistry extends UnicastRemoteObject implements MaRegistryInterfa
     }
 
     public void rebind(String key, Serializable obj) throws RemoteException{
-        System.out.println("rebind de "+ obj.getClass());
+        System.out.println("rebind objet serialisable avec la cle : "+key);
         database.add(key, obj);  
     }
     
     public Serializable lookup(String key) throws RemoteException{
+        System.out.println("lookup objet serialisable avec la cle : "+key);
         return database.get(key);
     }
 
