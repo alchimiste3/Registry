@@ -36,8 +36,8 @@ public class ServerBotanique {
             BotanyNotification jms = new BotanyNotification();
             jms.connection(infoJMSBotany.getUrl(), infoJMSBotany.getLogin(), infoJMSBotany.getPassword());
             jms.init(infoJMSBotany.getNom(), service.getPlantes());
-           // Thread t = new Thread(jms);
-           // t.start();
+            Thread t = new Thread(jms);
+            t.start();
                        
             
         } catch (RemoteException | MalformedURLException e) {

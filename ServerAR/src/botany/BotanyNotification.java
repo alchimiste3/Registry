@@ -8,6 +8,7 @@ package botany;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.jms.ConnectionFactory;
@@ -28,7 +29,7 @@ public class BotanyNotification implements Runnable {
     private javax.jms.Session session = null;
     private javax.jms.MessageProducer producteur = null;
     InitialContext context = null;
-    volatile HashMap<String, Plant> hashPlantes;
+    HashMap<String, Plant> hashPlantes;
     
     
     public void connection(String url, String login, String password){
@@ -62,7 +63,7 @@ public class BotanyNotification implements Runnable {
             session = connect.createSession(false, javax.jms.Session.AUTO_ACKNOWLEDGE);
             Queue queue = (Queue) context.lookup("dynamicQueues/"+nom);
             producteur = session.createProducer(queue);
-            producteur.setTimeToLive(20000);
+            producteur.setTimeToLive(16000);
         }
         catch(JMSException e){
             System.out.println("Probleme initialisation queue JMS → "+e);
@@ -93,14 +94,16 @@ public class BotanyNotification implements Runnable {
             try {
                 while (true) {
                     Iterator it = hashPlantes.entrySet().iterator();
-                    String mes = "";
+                    Random rand = new Random();
+                    int pourcent = rand.nextInt(9)*10;
+                    String mes = "Reduction exceptionnelle de " +pourcent + "% sur les ";
                     while (it.hasNext()) {
                         HashMap.Entry pair = (HashMap.Entry)it.next();
-                        mes = mes + pair.getKey() + " = " + pair.getValue() + "\n";
-                        it.remove();
+                        mes = mes + pair.getKey() + ", ";
                     }
+                    mes = mes + "\nA voir dans le jardin botanique de notre association";
                     notifier(mes);
-                Thread.sleep(10000);
+                Thread.sleep(15000);
                 }
             } catch (InterruptedException ex) {
                 Logger.getLogger(BotanyNotification.class.getName()).log(Level.SEVERE, null, ex);

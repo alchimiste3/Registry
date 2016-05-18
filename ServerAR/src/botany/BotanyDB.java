@@ -3,6 +3,7 @@ package botany;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import objetRMICommun.MaRegistryInterface;
 
 public class BotanyDB  extends UnicastRemoteObject implements BotanyDBInterface {
@@ -23,6 +24,7 @@ public class BotanyDB  extends UnicastRemoteObject implements BotanyDBInterface 
             maRMI.rebind(p3.getNom(), p3);
     }
     
+        @Override
     public HashMap getPlantes() throws RemoteException{
         return plantes;
     }
