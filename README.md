@@ -8,8 +8,6 @@ Il faut lancer la rmi dans le bin sur le port 1100 : rmiregistry 1100
 
 -Djava.rmi.server.useCodebaseOnly=false
 -Djava.security.policy="security.txt"
--Djava.rmi.server.hostname="10.188.232.162"
--Djava.rmi.server.codebase=http://localhost:2000/
 
 ## Server
 
