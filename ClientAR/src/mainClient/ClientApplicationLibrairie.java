@@ -130,7 +130,7 @@ public class ClientApplicationLibrairie {
 
             while(true){
                 
-                System.out.println("Entrer une commande !\n");
+                System.out.println(">");
                 rep = scanner.nextLine();
 
                 switch (rep) {
@@ -181,27 +181,55 @@ public class ClientApplicationLibrairie {
                     break;
                     case "derniereCleAdd":
                         System.out.println("combient de cle ? ");
-                        int nb = Integer.parseInt(scanner.nextLine());
+                        int nb = 0;
+                        try{
+                            nb = Integer.parseInt(scanner.nextLine());
+                            new CommandeDerniereCleAjouter(maRMI, nb).execute();
 
-                        new CommandeDerniereCleAjouter(maRMI, nb).execute();
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Entrer un nombre !!!!");
+                            
+                        }
+
                     break;
                     case "derniereObjetAdd":
                         System.out.println("combient d'objet ? ");
-                        nb = Integer.parseInt(scanner.nextLine());
+                       
+                        try{
+                            nb = Integer.parseInt(scanner.nextLine());
+                            new CommandeDernierObjetAjouter(maRMI, nb).execute();
 
-                        new CommandeDernierObjetAjouter(maRMI, nb).execute();
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Entrer un nombre !!!!");
+                            
+                        }
+                        
                        break;
                     case "derniereCleDemandee":
                         System.out.println("combient de cle ? ");
-                        nb = Integer.parseInt(scanner.nextLine());
+                        try{
+                            nb = Integer.parseInt(scanner.nextLine());
+                            new CommandeDerniereCleDemander(maRMI, nb).execute();
 
-                        new CommandeDerniereCleDemander(maRMI, nb).execute();
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Entrer un nombre !!!!");
+                            
+                        }
                     break;
                     case "freqCleDemande":
                         System.out.println("nombre de demande minimum ? ");
-                        nb = Integer.parseInt(scanner.nextLine());
+                        try{
+                            nb = Integer.parseInt(scanner.nextLine());
+                            new CommandeGetMapCleFreqDemander(maRMI, nb).execute();
 
-                        new CommandeGetMapCleFreqDemander(maRMI, nb).execute();
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Entrer un nombre !!!!");
+                            
+                        }
                     break;
                     default:
                     break;

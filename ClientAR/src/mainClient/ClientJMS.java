@@ -91,7 +91,7 @@ public class ClientJMS  implements javax.jms.MessageListener{
                     System.out.print(((MapMessage)message).getString("message"));
                 }
                 
-                System.out.println("\nEntrer une commande !\n");
+                System.out.println("\n>");
 
             }
         } catch (JMSException e) {
