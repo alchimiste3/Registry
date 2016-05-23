@@ -1,5 +1,10 @@
-package botany;
+package mainClient;
 
+import botany.BotanyDBInterface;
+import botany.BotanyJMSClient;
+import botany.CommandeAjouter;
+import botany.CommandeInfo;
+import botany.CommandeLister;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
