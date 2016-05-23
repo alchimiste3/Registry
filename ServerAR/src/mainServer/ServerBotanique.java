@@ -1,5 +1,8 @@
-package botany;
+package mainServer;
 
+import botany.BotanyDB;
+import botany.BotanyDBInterface;
+import botany.BotanyNotification;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
