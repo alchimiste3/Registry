@@ -80,8 +80,10 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
     }
     
     @Override
-    public boolean inscription(String nomAcheteur, String numCarteCredit) throws RemoteException {
+    public boolean inscription(String nomAcheteur, String numCarteCredit, String nomQueue) throws RemoteException {
         Acheteur acheteur = (Acheteur)maRMI.lookup(nomAcheteur);
+        
+        prod = jms.initQueue(nomQueue);
         
         System.out.println("prod = " + prod);
         if(acheteur != null && prod != null){
@@ -100,7 +102,10 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
     }
 
     @Override
-    public Livre acheterLivre(String nomAcheteur, String nomLivre) throws RemoteException {  
+    public Livre acheterLivre(String nomAcheteur, String nomLivre, String nomQueue) throws RemoteException {  
+        prod = jms.initQueue(nomQueue);
+
+        
         Acheteur acheteur = null;
         try{
            acheteur = (Acheteur)maRMI.lookup(nomAcheteur);
@@ -167,7 +172,10 @@ public class Librairie extends UnicastRemoteObject implements LibrairieInterface
 
   
     @Override
-    public boolean rappeleCommandeLivre(AccesClientLibrairieInterface client, String nomAcheteur, String nomLivre) throws RemoteException {
+    public boolean rappeleCommandeLivre(AccesClientLibrairieInterface client, String nomAcheteur, String nomLivre, String nomQueue) throws RemoteException {
+        
+        prod = jms.initQueue(nomQueue);
+
         HashMap<String, String> map = new HashMap<>();
 
         Acheteur acheteur = null;

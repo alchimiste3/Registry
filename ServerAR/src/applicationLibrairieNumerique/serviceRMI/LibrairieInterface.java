@@ -27,7 +27,7 @@ public interface LibrairieInterface extends Remote {
      * @return
      * @throws RemoteException
      */
-    public boolean inscription(String nomAcheteur, String numCarteCredit) throws RemoteException;
+    public boolean inscription(String nomAcheteur, String numCarteCredit, String nomQueue) throws RemoteException;
 
     /**
      * Permet d'acheter un livre a un acheteur
@@ -36,7 +36,7 @@ public interface LibrairieInterface extends Remote {
      * @return le livre acheter
      * @throws RemoteException
      */
-    public Livre acheterLivre(String nomAcheteur, String nomLivre) throws RemoteException;
+    public Livre acheterLivre(String nomAcheteur, String nomLivre, String nomQueue) throws RemoteException;
     
     /**
      * Permet de recuperer les liste des livre disponnible a la vente
@@ -53,7 +53,7 @@ public interface LibrairieInterface extends Remote {
      * @return 
      * @throws RemoteException
      */
-    public boolean rappeleCommandeLivre(AccesClientLibrairieInterface client, String nomAcheteur, String nomLivre) throws RemoteException;
+    public boolean rappeleCommandeLivre(AccesClientLibrairieInterface client, String nomAcheteur, String nomLivre, String nomQueue) throws RemoteException;
     
     /**
      * Permet au client de demander la creation d'une queue pour communiqué avec le serveur

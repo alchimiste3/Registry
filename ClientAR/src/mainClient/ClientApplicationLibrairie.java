@@ -145,7 +145,7 @@ public class ClientApplicationLibrairie {
                         System.out.println("Numero de carte de credit ?");
                         numCarteCredit = scanner.nextLine();
                         
-                        new CommandeInscription(librairie, nomUtilisateur, numCarteCredit).execute();
+                        new CommandeInscription(librairie, nomUtilisateur, numCarteCredit, "Queue_"+idClient).execute();
                     break;
                     
                     case "info":
@@ -159,7 +159,7 @@ public class ClientApplicationLibrairie {
                         System.out.println("nom du livre ?");
                         nomLivre = scanner.nextLine();
 
-                        new CommandeAcheterLivre(librairie, nomUtilisateur, nomLivre, listeMessage).execute();
+                        new CommandeAcheterLivre(librairie, nomUtilisateur, nomLivre, "Queue_"+idClient).execute();
                     break;
                     
                     case "listerLivre":
@@ -173,7 +173,7 @@ public class ClientApplicationLibrairie {
                         System.out.println("nom du livre ?");
                         nomLivre = scanner.nextLine();
 
-                        new CommandeCommanderLivre(librairie, client, nomUtilisateur, nomLivre).execute();
+                        new CommandeCommanderLivre(librairie, client, nomUtilisateur, nomLivre, "Queue_"+idClient).execute();
                     break;
                     
                     case "clePlusDemandee":
