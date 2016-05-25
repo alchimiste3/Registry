@@ -18,6 +18,10 @@ public class CommandeInfo {
     }
 
     public void execute() throws RemoteException{
-        System.out.println(service.getPlant(nomPlante).toString());
+        Plant p = service.getPlant(nomPlante);
+        if (p != null)
+            System.out.println(service.getPlant(nomPlante).toString());
+        else
+            System.out.println("Il n'y a pas de plante avec ce nom");
     }
 }
